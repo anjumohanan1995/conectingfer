@@ -1,165 +1,599 @@
-<!doctype html>
-<html class="no-js" lang="en">
+<!DOCTYPE html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Connectinfer</title>
-    <meta name="robots" content="noindex, follow" />
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- Favicon -->
-    {{-- <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png"> --}}
-    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('img/gov2.jpeg') }}">
+    <title>connectifier</title>
+    <!-- Stylesheets -->
+    <link href={{ asset('css/bootstrap.css') }} rel="stylesheet">
+    <link href={{ asset('css/settings.css') }} rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
+    <link href={{ asset('css/layers.css') }} rel="stylesheet" type="text/css"><!-- REVOLUTION LAYERS STYLES -->
+    <link href={{ asset('css/navigation.css') }} rel="stylesheet" type="text/css"><!-- REVOLUTION NAVIGATION STYLES -->
+    <link rel="stylesheet" href={{ asset('css/icomoon.css') }} />
+    <link href={{ asset('css/style.css') }} rel="stylesheet">
+    <link href={{ asset('css/responsive.css') }} rel="stylesheet">
 
-    <!-- CSS
- ============================================ -->
+    <link rel="shortcut icon" href={{ asset('images/favicon.png') }} type="image/x-icon">
+    <link rel="icon" href={{ asset('images/favicon.png') }} type="image/x-icon">
 
-    <!-- Icon Font CSS -->
-    <link rel="stylesheet" href="{{ asset('home/css/all.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/flaticon.css') }}">
-
-    <!-- Plugins CSS -->
-    <link rel="stylesheet" href="{{ asset('home/css/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/swiper-bundle.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/aos.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/jquery.powertip.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/nice-select.css') }}">
-    <link rel="stylesheet" href="{{ asset('home/css/magnific-popup.css') }}">
-
-    <!-- Main Style CSS -->
-    <link rel="stylesheet" href="{{ asset('home/css/style.css') }}">
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="js/respond.js"></script><![endif]-->
 
 
-    <!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
-    <!-- <link rel="stylesheet" href="css/vendor/plugins.min.css">
-    <link rel="stylesheet" href="css/style.min.css"> -->
 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{-- <title>6 New Year Countdown</title> --}}
 </head>
 
 <body>
 
-    <div class="main-wrapper">
-        <!-- Preloader start -->
-        <div class="theme-loader theme-loader-02">
-            <div class="spinner">
-                <div class="double-bounce1"></div>
-                <div class="double-bounce2"></div>
+    <div class="page-wrapper">
+        <!-- Preloader -->
+        <div class="preloader"></div>
+
+
+        <!-- Header Upper -->
+        <header class="main-header header-style-three">
+
+            <!-- header-lower -->
+
+            <div class="header-lower">
+
+                <div class="auto-container">
+
+                    <div class="outer-box clearfix">
+
+                        <div class="logo-box pull-left">
+
+                            <figure class="logo"><a href="index-3.html"><img src="images/logo-4.png"
+                                        alt=""></a></figure>
+
+                        </div>
+
+                        <div class="menu-area pull-right clearfix">
+
+                            <!--Mobile Navigation Toggler-->
+
+                            <div class="mobile-nav-toggler">
+
+                                <i class="icon-bar"></i>
+
+                                <i class="icon-bar"></i>
+
+                                <i class="icon-bar"></i>
+
+                            </div>
+                            <div class="mobile-menu">
+
+
+
+                                <div class="close-btn"><i class="fas fa-times"></i></div>
+
+
+
+                                <nav class="menu-box">
+
+                                    <div class="nav-logo"><a href="{{ url('/') }}"><img src="images/logo-4.png"
+                                                alt="" title=""></a></div>
+
+                                    <div class="menu-outer">
+                                        <ul class="navigation clearfix">
+
+                                            <li class="current "><a href="{{ url('/') }}">Home</a>
+
+
+
+                                            </li>
+
+                                            <li class=""><a href="{{ url('about-us') }}">About Us</a>
+
+
+
+                                            </li>
+
+                                            <li class="dropdown"><a href="">Solutions</a>
+
+                                                <ul>
+
+                                                    <li><a href="{{url('industrial-automation')}}">Industrial Automation</a></li>
+
+                                                    <li><a href="{{url('manufacturing')}}">Manufacturing</a></li>
+
+                                                    <li><a href="{{url("logistics-management")}}">Logistics Management</a></li>
+
+                                                    <li><a href="{{url('energy')}}">Energy</a></li>
+                                                </ul>
+
+                                            </li>
+
+                                            <li class=""><a href="{{url('technology')}}">Technology</a>
+
+
+                                            </li>
+
+                                            <li class=""><a href="{{url('services')}}">Services</a>
+
+
+
+                                            </li>
+
+                                            <li class=""><a href="{{url('contact')}}">Contact</a>
+
+
+
+                                            </li>
+
+
+
+                                        </ul>
+
+
+                                    </div>
+
+
+
+                                    <div class="social-links">
+
+                                        <ul class="clearfix">
+
+                                            <li><a href=""><span class="fab fa-twitter"></span></a></li>
+
+
+                                            <li><a href=""><span class="fab fa-linkedin"></span></a></li>
+
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </nav>
+
+                            </div><!-- End Mobile Menu -->
+
+                            <nav class="main-menu navbar-expand-md navbar-light">
+
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+
+                                    <ul class="navigation clearfix">
+
+                                        <li class="current "><a href="{{ url('/') }}">Home</a>
+
+
+
+                                        </li>
+
+                                        <li class=""><a href="{{ url('about-us') }}">About Us</a>
+
+
+
+                                        </li>
+
+                                        <li class="dropdown"><a href="">Solutions</a>
+
+                                            <ul>
+
+                                                <li><a href="{{ url('industrial-automation') }}">Industrial
+                                                        Automation</a></li>
+
+                                                <li><a href="{{ url('manufacturing') }}">Manufacturing</a></li>
+
+                                                <li><a href="{{ url('logistics-management') }}">Logistics
+                                                        Management</a></li>
+
+                                                <li><a href="{{ url('energy') }}">Energy</a></li>
+
+
+                                            </ul>
+
+                                        </li>
+
+                                        <li class=""><a href="{{ url('technology') }}">Technology</a>
+
+
+                                        </li>
+
+                                        <li class=""><a href="{{ url('services') }}">Services</a>
+
+
+
+                                        </li>
+
+                                        <li class=""><a href="{{ url('contact') }}">Contact</a>
+
+
+
+                                        </li>
+
+
+
+                                    </ul>
+
+                                </div>
+
+                            </nav>
+
+                            <div class="search-box-outer">
+
+                                <div class="dropdown">
+
+                                    <button class="search-box-btn" type="button" id="dropdownMenu3"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
+                                            class="fas fa-search"></i></button>
+
+                                    <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
+
+                                        <div class="form-container">
+
+                                            <form method="post" action="blog.html">
+
+                                                <div class="form-group">
+
+                                                    <input type="search" name="search-field" value=""
+                                                        placeholder="Search...." required="">
+
+                                                    <button type="submit" class="search-btn"><span
+                                                            class="fas fa-search"></span></button>
+
+                                                </div>
+
+                                            </form>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
             </div>
-        </div>
-        <!-- Preloader end -->
 
-        <!-- Header Start  -->
-        <div class="section header header-02 header-03 header-04">
-            <div class="container">
 
-                <div class="header-wrap">
 
-                    <!--  Header Logo Start  -->
-                    <div class="header-logo">
-                        <a href="/"> <img src="{{ asset('img/gov.jpeg') }}"   class="ms-5 logo-img" ></a>
+
+            <!--sticky Header-->
+
+            <div class="sticky-header">
+
+                <div class="auto-container">
+
+                    <div class="outer-box clearfix">
+
+                        <figure class="sticky-logo pull-left">
+
+                            <a href="index.html"><img src="images/logo-4.png" alt=""></a>
+
+                        </figure>
+
+                        <div class="menu-area pull-right clearfix">
+
+                            <nav class="main-menu clearfix">
+
+                                <!--Keep This Empty / Menu will come through Javascript-->
+
+
+
+                                <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
+
+                                    <ul class="navigation clearfix">
+
+                                        <li class="current "><a href="index.html">Home</a>
+
+
+
+                                        </li>
+
+                                        <li class=""><a href="about.html">About Us</a>
+
+
+
+                                        </li>
+
+                                        <li class="dropdown"><a href="">Solutions</a>
+
+                                            <ul>
+
+                                                <li><a href="industrial.html">Industrial Automation</a></li>
+
+                                                <li><a href="manufacturing.html">Manufacturing</a></li>
+
+                                                <li><a href="logistics.html">Logistics Management</a></li>
+
+                                                <li><a href="energy.html">Energy</a></li>
+
+
+                                            </ul>
+
+                                            <div class="dropdown-btn"><span class="fas fa-angle-down"></span></div>
+                                        </li>
+
+                                        <li class=""><a href="technology.html">Technology</a>
+
+
+                                        </li>
+
+                                        <li class=""><a href="services.html">Services</a>
+
+
+
+                                        </li>
+
+                                        <li class=""><a href="contact.html">Contact</a>
+
+
+
+                                        </li>
+
+
+
+                                    </ul>
+
+                                </div>
+
+                            </nav>
+
+                        </div>
 
                     </div>
-                    <!--  Header Logo End  -->
 
-                    <!--  Header Menu Start  -->
-                    <div class="header-menu d-none d-lg-block">
+                </div>
+
+            </div>
+
+        </header>
+        <!-- main-header end -->
+
+
+
+        @yield('content')
+
+
+
+
+        <!-- main-footer -->
+        <footer class="main-footer footer-style-three">
+
+            <div class="footer-top-two">
+
+                <div class="pattern-layer">
+
+                    <div class="pattern-1" style="background-image: url(images/shape-21.png);"></div>
+
+                    <div class="pattern-2" style="background-image: url(images/shape-22.png);"></div>
+
+                </div>
+
+                <div class="auto-container">
+
+                    <div class="row clearfix">
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+
+                            <div class="footer-widget logo-widget">
+
+                                <figure class="footer-logo"><a href="index-2.html"><img src="images/logo-4.png"
+                                            alt=""></a></figure>
+
+                                <div class="text">
+
+                                    <p>Customized sensor-based end-to-end IoT solutions to optimize system performance,
+                                        reduce risk and drive efficiencies across industrial operations. Assets are
+                                        securely connected, monitored and tracked continuously in demanding
+                                        environments.</p>
+
+                                </div>
+
+                                <ul class="social-links clearfix">
+
+                                    <!-- <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li> -->
+
+                                    <li><a href="index-3.html"><i class="fab fa-linkedin"></i></a></li>
+
+                                    <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
+
+                                    <!-- <li><a href="index-3.html"><i class="fab fa-dribbble"></i></a></li> -->
+
+                                </ul>
+
+                            </div>
+
+                        </div>
+
+
+
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+
+                            <div class="footer-widget links-widget ml-40">
+
+                                <div class="widget-title">
+
+                                    <h3>Useful Links</h3>
+
+                                </div>
+
+                                <div class="widget-content">
+
+                                    <ul class="links-list clearfix">
+
+                                        <li><a href="index.html">Home</a></li>
+
+                                        <li><a href="about.html">About us</a></li>
+
+                                        <li><a href="industrial.html">Solutions</a></li>
+
+                                        <li><a href="technology.html">Technology</a></li>
+
+                                        <li><a href="services.html">Services</a></li>
+
+
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+
+                            <div class="footer-widget contact-widget">
+
+                                <div class="widget-title">
+
+                                    <h3>Contact Us</h3>
+
+                                </div>
+
+                                <div class="widget-content">
+
+                                    <ul class="info-list clearfix">
+
+                                        <li>
+
+                                            <h4>Address</h4>
+
+                                            <p>5457 Twin Knolls Rd<br>
+
+                                                Ste 300 PMB 1045<br>
+
+                                                Columbia, MD 21045</p>
+
+                                        </li>
+
+                                        <li>
+
+                                            <h4>Phone No.</h4>
+
+                                            <p><a href="tel:0088827240">+1 408 673 0959</a></p>
+
+                                        </li>
+
+                                        <li>
+
+                                            <h4>Email Address</h4>
+
+                                            <p><a
+                                                    href="mailto:solutions@connectinfer.com">solutions@connectinfer.com</a>
+                                            </p>
+
+                                        </li>
+
+                                    </ul>
+
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
-                    <!--  Header Menu End  -->
 
-                    <!-- Header Meta Start -->
-                    <div class="header-meta">
+                </div>
 
+            </div>
 
+            <div class="footer-bottom">
 
-                        <div class="header-login d-lg-block">
-                            <a class="link link-btn" href="{{url('login-pannel')}}">Login</a>
+                <!-- scroll to top -->
+
+                <button class="scroll-top style-one scroll-to-target" data-target="html">
+
+                    <i class="fas fa-angle-up"></i>
+
+                </button>
+
+                <div class="auto-container">
+
+                    <div class="bottom-inner clearfix">
+
+                        <div class="copyright pull-left">
+
+                            <p>Copyright &copy; <a href="">Connectinfer</a>, All Rights Reserved.</p>
 
                         </div>
 
 
 
                     </div>
-                    <!-- Header Meta End -->
 
                 </div>
 
             </div>
-        </div>
-        <!-- Header End -->
 
-        @yield('content')
-
+        </footer>
+        <!-- main-footer end -->
 
 
     </div>
-    <!-- Hero End -->
-
-    <!-- Category Start -->
-    <div class="section eduhut-category-section eduhut-category-section-04 section-padding">
-
-    <!-- Brand Logo End -->
-
-    <!-- Footer Start -->
-    <div class="footer-section footer-section-03 section">
-        <div class="container">
-
-            <div class="copyright-text">
-                    <p>© Copyrights 2023 Connectinfer Developed by <a href="https://kawikatechnologies.com/" target="_blank">Kawika Technologies</a>. All rights reserved.</p>
-            </div>
-
-        </div>
-    </div>
-    <!-- Footer End -->
-
-    <!-- back to top start -->
-    <div class="progress-wrap progress-wrap-02">
-        <svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
-            <path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
-        </svg>
-    </div>
-    <!-- back to top end -->
-
-</div>
-
-<!-- JS
-============================================ -->
-<script src="{{ asset('home/js/jquery-1.12.4.min.js') }}"></script>
-<script src="{{ asset('home/js/modernizr-3.11.2.min.js') }}"></script>
-
-<!-- Bootstrap JS -->
-<script src="{{ asset('home/js/popper.min.js') }}"></script>
-<script src="{{ asset('home/js/bootstrap.min.js') }}"></script>
-
-<!-- Plugins JS -->
-<script src="{{ asset('home/js/swiper-bundle.min.js') }}"></script>
-<script src="{{ asset('home/js/aos.js') }}"></script>
-<script src="{{ asset('home/js/waypoints.min.js') }}"></script>
-<script src="{{ asset('home/js/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('home/js/jquery.powertip.min.js') }}"></script>
-<script src="{{ asset('home/js/jquery.nice-select.min.js') }}"></script>
-<script src="{{ asset('home/js/back-to-top.js') }}"></script>
-<script src="{{ asset('home/js/jquery.magnific-popup.min.js') }}"></script>
-<script src="{{ asset('js/jquery-3.6.0.min.js') }}"></script>
-<!--====== Use the minified version files listed below for better performance and remove the files listed above ======-->
 
 
-<!-- Main JS -->
-<script src="{{ asset('home/js/main.js') }}"></script>
-<style>
-.type1{
-background:white;
-}
-</style>
+
+
+
+
+
+
+
+
+
+
+    <!--End pagewrapper-->
+
+    <!--Scroll to top-->
+    <!-- <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div> -->
+    <!--Scroll to top-->
+
+    <script src={{ asset('js/jquery.js') }}></script>
+    <script src={{ asset('js/popper.min.js') }}></script>
+    <script src={{ asset('js/bootstrap.min.js') }}></script>
+    <!--Revolution Slider-->
+    <script src={{ asset('js/jquery.themepunch.revolution.min.js') }}></script>
+    <script src={{ asset('js/jquery.themepunch.tools.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.actions.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.carousel.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.kenburn.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.layeranimation.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.migration.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.navigation.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.parallax.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.slideanims.min.js') }}></script>
+    <script src={{ asset('js/revolution.extension.video.min.js') }}></script>
+    <script src={{ asset('js/main-slider-script.js') }}></script>
+    <!--Revolution Slider-->
+
+    <script src={{ asset('js/jquery-ui.js') }}></script>
+    <script src={{ asset('js/jquery.fancybox.js') }}></script>
+    <script src={{ asset('js/owl.js') }}></script>
+    <script src={{ asset('js/wow.js') }}></script>
+    <script src={{ asset('js/appear.js') }}></script>
+    <script src={{ asset('js/script.js') }}></script>
+    <script>
+        $(document).ready(function() {
+            // Function to add a class to the body when the button is clicked
+            $(".mobile-nav-toggler").click(function() {
+                $("body").addClass("mobile-menu-visible");
+
+            });
+            $(' .close-btn').on('click', function() {
+                $('body').removeClass('mobile-menu-visible');
+            });
+        });
+    </script>
+
 </body>
 
 </html>
-
-
-
-
-
-
-
-

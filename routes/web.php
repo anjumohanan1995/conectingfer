@@ -2,15 +2,17 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\HomePageController;
-use App\Http\Controllers\RoleController;
-use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\ApplicationController;
-use App\Http\Controllers\ApplicationFormController;
-use App\Http\Controllers\ReportController;
+use App\Http\Controllers\HomePageController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\WebPagesController;
+
+// use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\ApplicationController;
+// use App\Http\Controllers\ApplicationFormController;
+// use App\Http\Controllers\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,14 +20,6 @@ use App\Http\Controllers\ReportController;
 |--------------------------------------------------------------------------
 */
 
-// Route::get('/', function () {
-
-//     return view('student');
-// });
-// Route::get('/', function () {
-
-//     return view('auth.login');
-// });
 Route::get('/login-pannel', function () {
 
     return view('auth.login');
@@ -36,7 +30,21 @@ Route::get('/testMail', function () {
 });
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
+
+
+// web pages routes starts here 
 route::get('/',[HomePageController::class, 'index']);
+
+route::get('about-us', [WebPagesController::class, 'aboutUs']);
+route::get('technology', [WebPagesController::class, 'technology']);
+route::get('industrial-automation', [WebPagesController::class, 'industrialAutomation']);
+route::get('manufacturing', [WebPagesController::class, 'manufacturing']);
+route::get('logistics-management', [WebPagesController::class, 'logisticsManagement']);
+route::get('energy', [WebPagesController::class, 'energy']);
+route::get('services', [WebPagesController::class, 'services']);
+route::get('contact', [WebPagesController::class, 'contact']);
+// web pages routes ends here .
+
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);
 Route::get('login', [CustomAuthController::class, 'index'])->name('login');
@@ -51,6 +59,11 @@ Route::get('status/change', [App\Http\Controllers\HomeController::class, 'change
 
 
 Auth::routes(['register' => false, 'password.request' => false, 'password.reset' => false]);
+
+
+
+
+
 
 
 Route::middleware('cookies')->group(function () {
