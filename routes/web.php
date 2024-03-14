@@ -1,5 +1,8 @@
 <?php
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SubMenuController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
@@ -130,3 +133,14 @@ route::post('/admin/profie/password-edit-page',[ProfileController::class, 'editP
 // admin password edit route ends here
 
 
+Route::resource('menus', MainMenuController::class);
+Route::get('getMenus', [MainMenuController::class, 'getMenus'])->name('getMenus');
+Route::post('/menus/{mainMenu}', [MainMenuController::class, 'destroy'])->name('menus.delete');
+//menus route ends here.
+
+//sub menu route starts here.
+Route::resource('sub_menus', SubMenuController::class);
+Route::get('/sub_menus/index/{id}', [SubMenuController::class, 'indexWithId'])->name('sub_menus.indexWithId');
+Route::get('getSubMenus', [SubMenuController::class, 'getSubMenus'])->name('getSubMenus');
+Route::post('/sub_menus/{mainMenu}', [SubMenuController::class, 'destroy'])->name('sub_menus.delete');
+//sub menus route ends here.

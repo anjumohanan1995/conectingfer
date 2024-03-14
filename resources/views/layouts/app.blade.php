@@ -25,7 +25,7 @@
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> --}}
 
     <!--- Style css --->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/admin-style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/plugins.css') }}" rel="stylesheet" />
     <!--- Icons css --->
     <link href="{{ asset('css/icons.css') }}" rel="stylesheet" />
@@ -614,7 +614,13 @@
 
 
                                         </li>
-
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'menus.index' || \Request::route()->getName() == 'menus.create' || \Request::route()->getName() == 'menus.edit' ? 'active' : '' }}"
+                                                href="{{ url('menus') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Menu</span>
+                                            </a>
+                                        </li>
                                    
                                         @endif
                                        
