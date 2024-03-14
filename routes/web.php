@@ -64,11 +64,6 @@ Route::get('status/change', [App\Http\Controllers\HomeController::class, 'change
 Auth::routes(['register' => false, 'password.request' => false, 'password.reset' => false]);
 
 
-
-
-
-
-
 Route::middleware('cookies')->group(function () {
 
 Route::resource('/user-management', UserController::class);

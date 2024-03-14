@@ -113,6 +113,8 @@ class HomeController extends Controller
 
         //    // dd($data);
         //     return view('staff.dashboard',compact('data'));
+
+        
         return view('admin.dashboard');
 
 

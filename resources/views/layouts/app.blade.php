@@ -291,7 +291,11 @@
           </div>  -->
                                     @php
                                         $date = date('Y-m-d');
-                                        $getNotifications = DB::table('notifications')->where('date', $date)->where('status', 0)->orderBy('created_at', 'desc')->get();
+                                        $getNotifications = DB::table('notifications')
+                                            ->where('date', $date)
+                                            ->where('status', 0)
+                                            ->orderBy('created_at', 'desc')
+                                            ->get();
                                     @endphp
                                     <div class="dropdown nav-item main-header-notification">
                                         <a class="new nav-link" href="javascript:void(0);">
@@ -530,7 +534,9 @@
                             @$role = \Auth::user()->role;
                             $permission = \App\RolePermission::where('role', \Auth::user()->role)->first();
 
-                            @$sub_permission = $permission->sub_permissions ? json_decode($permission->sub_permissions, true) : null;
+                            @$sub_permission = $permission->sub_permissions
+                                ? json_decode($permission->sub_permissions, true)
+                                : null;
 
                         @endphp
                         @if (Auth::user()->role == 'Student')
@@ -567,7 +573,9 @@
                                 $permission = \App\RolePermission::where('role', \Auth::user()->role)->first();
                                 //  dd(Auth::user()->name);
                                 //dd($permission);
-                                @$sub_permission = $permission->sub_permissions ? json_decode($permission->sub_permissions, true) : null;
+                                @$sub_permission = $permission->sub_permissions
+                                    ? json_decode($permission->sub_permissions, true)
+                                    : null;
                                 //dd($sub_permission);
                             @endphp
                             @if (!empty($permission))
@@ -621,12 +629,9 @@
                                                 <span class="side-menu__label">Menu</span>
                                             </a>
                                         </li>
-                                   
-                                        @endif
-                                       
-
-                                    @endforeach
-                                @endif
+                                    @endif
+                                @endforeach
+                            @endif
 
 
 
@@ -684,7 +689,8 @@
             <div class="main-footer ht-45">
                 <div class="container-fluid pd-t-0-f ht-100p">
                     <span>
-                        Copyright © 2023 <a href="javascript:void(0);" class="text-primary">Connectinfer</a>. Designed with
+                        Copyright © 2023 <a href="javascript:void(0);" class="text-primary">Connectinfer</a>. Designed
+                        with
                         <span class="fa fa-heart text-danger"> </span> by <a href="javascript:void(0);"> Kawika
                             Technologies </a> All rights reserved.
                     </span>
@@ -752,8 +758,6 @@
 
 
             });
-
-
         </script>
         <script type="text/javascript">
             $('.aminus').on('click', function() {
