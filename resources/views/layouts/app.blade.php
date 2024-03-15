@@ -38,6 +38,9 @@
     @yield('css')
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
+    {{-- ck editor  --}}
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+
     <?php
     if (session()->has('style_status')) {
         $style_status = session()->get('style_status');
@@ -629,6 +632,14 @@
                                                 <span class="side-menu__label">Menu</span>
                                             </a>
                                         </li>
+
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'solutions.index' || \Request::route()->getName() == 'solutions.create' || \Request::route()->getName() == 'solutions.edit' ? 'active' : '' }}"
+                                                href="{{ url('solutions') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Solutions</span>
+                                            </a>
+                                        </li>
                                     @endif
                                 @endforeach
                             @endif
@@ -698,12 +709,23 @@
             </div>
 
             <!-- Footer closed -->
+
+
         </div>
         <!-- page closed -->
         <!--- Back-to-top --->
         <a href="#top" id="back-to-top" style="display: block;">
             <i class="las la-angle-double-up"> </i>
         </a>
+
+        {{-- ckeditor  --}}
+        <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('.ckeditor').ckeditor();
+            });
+        </script>
+
 
         <script src="{{ asset('js/jquery.min.js') }}"></script>
         <script src="{{ asset('js/datepicker.js') }}"></script>
@@ -731,9 +753,7 @@
 
 
 
-        <!-- 	<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script> -->
 
-        <!-- <script src="https://unpkg.com/sweetalert2@7.8.2/dist/sweetalert2.all.js"></script> -->
         <script></script>
 
         <!-- [...] -->

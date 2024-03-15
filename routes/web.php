@@ -10,7 +10,9 @@ use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\WebPagesController;
+use App\Models\MainMenu;
 
 // use App\Http\Controllers\HomeController;
 // use App\Http\Controllers\ApplicationController;
@@ -139,3 +141,10 @@ Route::get('/sub_menus/index/{id}', [SubMenuController::class, 'indexWithId'])->
 Route::get('getSubMenus', [SubMenuController::class, 'getSubMenus'])->name('getSubMenus');
 Route::post('/sub_menus/{mainMenu}', [SubMenuController::class, 'destroy'])->name('sub_menus.delete');
 //sub menus route ends here.
+
+
+//service route starts here 
+Route::resource('solutions', SolutionController::class);
+Route::get('/solutions/add-content-index/{id}', [SolutionController::class, 'addContentIndex'])->name('solutions.addContent.index');
+Route::get('getSolutions', [SolutionController::class, 'getSolutions'])->name('getSolutions');
+//service route ends here 
