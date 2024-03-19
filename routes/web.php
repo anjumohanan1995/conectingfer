@@ -146,5 +146,6 @@ Route::post('/sub_menus/{mainMenu}', [SubMenuController::class, 'destroy'])->nam
 //service route starts here 
 Route::resource('solutions', SolutionController::class);
 Route::get('/solutions/add-content-index/{id}', [SolutionController::class, 'addContentIndex'])->name('solutions.addContent.index');
+Route::Post('/solutions/add-content-store', [SolutionController::class, 'addContentStore'])->name('solutions.addContent.store');
 Route::get('getSolutions', [SolutionController::class, 'getSolutions'])->name('getSolutions');
 //service route ends here 
