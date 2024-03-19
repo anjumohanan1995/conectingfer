@@ -1,8 +1,12 @@
 <?php
+use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubMenuController;
+use App\Http\Controllers\TechnologyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
@@ -148,3 +152,16 @@ Route::resource('solutions', SolutionController::class);
 Route::get('/solutions/add-content-index/{id}', [SolutionController::class, 'addContentIndex'])->name('solutions.addContent.index');
 Route::get('getSolutions', [SolutionController::class, 'getSolutions'])->name('getSolutions');
 //service route ends here 
+
+
+Route::resource('technology_list', TechnologyController::class);
+Route::get('getTechnology', [TechnologyController::class, 'getTechnology'])->name('getTechnology');
+
+Route::resource('service_list', ServiceController::class);
+Route::get('getServices', [ServiceController::class, 'getServices'])->name('getServices');
+
+Route::get('/admin/about-us', [AboutusController::class, 'index'])->name('about-us.index');
+Route::post('admin/about-us/store',[AboutusController::class,'store'])->name('about-us.store');
+
+Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact.index');
+Route::post('admin/contact-store',[ContactController::class,'store'])->name('contact.store');
