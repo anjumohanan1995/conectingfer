@@ -32,73 +32,22 @@
 
         <div class="row">
             <!-- Services Block Three -->
+            @foreach ($datas as $data)
             <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image">
                         <a href="building-construction.html"><img src="images/service-2-1.jpg" alt="" /></a>
                     </div>
                     <div class="lower-content">
-                        <h3><a href="building-construction.html">Concept Design</a></h3>
-                        <div class="text">Leverage our engineering expertise to transform ideas into
-                            productive solutions through
-                            comprehensive requirements analysis and feasibility studies.</div>
-                        <a href="contact.html" class="read-more">Learn More<span
+                        <h3><a href="#">{{ @$data->title }}</a></h3>
+                        <div class="text">{!! @$data->description !!}</div>
+                        <a href="{{url('/contact')}}" class="read-more">Learn More<span
                                 class="fas fa-angle-right"></span></a>
                     </div>
                 </div>
-            </div>
-
-            <!-- Services Block Three -->
-            <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                    <div class="image">
-                        <a href="chemical-research.html"><img src="images/service-2-2.jpg" alt="" /></a>
-                    </div>
-                    <div class="lower-content">
-                        <h3><a href="chemical-research.html">Product Development</a></h3>
-                        <div class="text">A seamlessly integrated process encompassing UX design,
-                            prototyping, validation testing,
-                            and certified manufacturing ensures solutions exceed expectations.</div>
-                        <a href="contact.html" class="read-more">Learn More<span
-                                class="fas fa-angle-right"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Block Three -->
-            <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                    <div class="image">
-                        <a href="oil-gas.html"><img src="images/service-2-3.jpg" alt="" /></a>
-                    </div>
-                    <div class="lower-content">
-                        <h3><a href="oil-gas.html">Deployment and Support</a></h3>
-                        <div class="text">Full life cycle services including implementation, training, and
-                            responsive issue resolution to
-                            empower organizations throughout the product journey.</div>
-                        <a href="contact.html" class="read-more">Learn More<span
-                                class="fas fa-angle-right"></span></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Services Block Three -->
-            <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
-                <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image">
-                        <a href="plants.html"><img src="images/service-2-4.jpg" alt="" /></a>
-                    </div>
-                    <div class="lower-content">
-                        <h3><a href="plants.html">Commercialization</a></h3>
-                        <div class="text">Partner with our market specialists for branding, packaging,
-                            marketing collateral, and
-                            distribution network activation to maximize solution reach. </div>
-                        <a href="contact.html" class="read-more">Learn More<span
-                                class="fas fa-angle-right"></span></a>
-                    </div>
-                </div>
-            </div>
-
+            </div> 
+            @endforeach
+         
            
 
             <!-- <p>From concept to consumer, ConnectInfer delivers customized, end-to-end solutions that

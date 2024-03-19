@@ -16,28 +16,23 @@
         <div class="auto-container">
             <div class="row clearfix">
 
-
-                <div class="info-column col-lg-4 col-md-12 col-sm-12">
-                    <div class="inner-column wow fadeInLeft" data-wow-delay="0ms">
-
-                        <div class="title-box">
-                            <h3>Contact Details</h3>
-                            <div class="title-text">Get in touch with us for any questions about our industries
-                                or projects.</div>
-                        </div>
-                        <ul class="contact-info-list">
-
-                            <li><span class="icon icon-location-pin"></span><strong>
-                                    Address</strong>5457 Twin Knolls Rd<br>
-
-                                Ste 300 PMB 1045<br>
-
-                                Columbia, MD 21045</li>
-                            <li><span class="icon icon-envelope-open"></span><strong>Email
-                                    us</strong>solutions@connectinfer.com</li>
-                            <li><span class="icon icon-call-in"></span><strong>Call Support</strong>+1 408 673
-                                0959</li>
-                        </ul>
+            
+            <div class="info-column col-lg-4 col-md-12 col-sm-12">
+                <div class="inner-column wow fadeInLeft" data-wow-delay="0ms">
+                  
+                    <div class="title-box">
+                        <h3>{{ @$data->title }}</h3>
+                        <div class="title-text">{{ @$data->sub_title}}</div>
+                    </div>
+                    <ul class="contact-info-list">
+                        
+                        <li><span class="icon icon-location-pin"></span><strong>
+                                Address</strong>
+                            {!! @$data->address !!}</li>
+                        <li><span class="icon icon-envelope-open"></span><strong>Email
+                                us</strong>{{ @$data->email }}</li>
+                        <li><span class="icon icon-call-in"></span><strong>Call Support</strong>{{ @$data->contact }}</li>
+                    </ul>
 
 
                         <ul class="social-links">

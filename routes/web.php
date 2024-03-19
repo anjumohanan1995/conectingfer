@@ -3,6 +3,7 @@ use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\MainMenuController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubMenuController;
@@ -53,6 +54,8 @@ route::get('logistics-management', [WebPagesController::class, 'logisticsManagem
 route::get('energy', [WebPagesController::class, 'energy']);
 route::get('services', [WebPagesController::class, 'services']);
 route::get('contact', [WebPagesController::class, 'contact']);
+route::get('privacy-policy', [WebPagesController::class, 'privacyPolicy']);
+route::get('cookie-policy', [WebPagesController::class, 'cookiePolicy']);
 // web pages routes ends here .
 
 
@@ -176,3 +179,31 @@ Route::post('admin/about-us/store',[AboutusController::class,'store'])->name('ab
 
 Route::get('/admin/contact', [ContactController::class, 'index'])->name('contact.index');
 Route::post('admin/contact-store',[ContactController::class,'store'])->name('contact.store');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Route::get('settings','App\Http\Controllers\SettingController@genreal')->name('gen.set');
+Route::post('setting/store','App\Http\Controllers\SettingController@store')->name('setting.store');
+
+Route::get('/admin/privacy-policy', [PolicyController::class, 'privacyPolicy'])->name('privacyPolicy.index');
+Route::post('admin/privacy-policy/store',[PolicyController::class,'privacyPolicyStore'])->name('privacyPolicy.store');
+
+Route::get('/admin/cookie-policy', [PolicyController::class, 'cookiePolicy'])->name('cookiePolicy.index');
+Route::post('admin/cookie-policy/store',[PolicyController::class,'cookiePolicyStore'])->name('cookiePolicy.store');

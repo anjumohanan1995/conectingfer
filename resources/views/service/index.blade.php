@@ -160,10 +160,7 @@
     
     @if (session('status'))
     <script>
-        toastr.success('{{ session("status") }}', 'Success!')
-    
-    
-        
+        toastr.success('{{ session("status") }}', 'Success!')        
     </script>
     @endif
 
