@@ -63,29 +63,31 @@
                                                 </div>
                                             </div><br>
                                           
-                                            <div class="row">
-                                                <div class="col-md-3"><label class="form-label"> Content</label></div>
-                                                <div class="col-md-9"><textarea class="ckeditor form-control" placeholder=" Content" name="content">{{@$data->content}}</textarea>
-                                                    @error('description')
+											<div class="row">
+                                                <div class="col-md-3"><label class="form-label"> Address</label></div>
+                                                <div class="col-md-9"><textarea class="ckeditor form-control" placeholder="Address" name="address">{{@$data->address}}</textarea>
+                                                    @error('address')
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                 </div>
                                             </div><br>
                                         
-                                            <div class="row">
-                                                <div class="col-md-3"><label class="form-label">Image</label></div>
-                                                <div class="col-md-9">
-                                                    
-                                                    <span>Upload Maximum File Size is 2Mb</span>
-                                                    <input type="file" id="img_file" name="image" class="form-control" accept=".png, .jpg, .jpeg"  onChange="img_pathUrl(this);"><br>
-                                                   @if(@$data->image != '')
-                                                   <img src="{{ asset('Aboutus/' . $data->image) }}" width="200px" height="160px" />
-                                                    @endif
-                                                    @error('image')
+											<div class="row">
+                                                <div class="col-md-3"><label class="form-label">Email</label></div>
+                                                <div class="col-md-9"><input type="text" class="form-control" placeholder="Email" name="email" id="email" value="{{@$data->email}}" />
+                                                    @error('email')
                                                         <span class="text-danger">{{$message}}</span>
                                                     @enderror
                                                 </div>
-                                            </div>
+                                            </div><br>
+											<div class="row">
+                                                <div class="col-md-3"><label class="form-label">Contact</label></div>
+                                                <div class="col-md-9"><input type="text" class="form-control" placeholder="Contact" name="contact" id="contact" value="{{@$data->contact}}" />
+                                                    @error('contact')
+                                                        <span class="text-danger">{{$message}}</span>
+                                                    @enderror
+                                                </div>
+                                            </div><br>
                                          
 
 									</div>

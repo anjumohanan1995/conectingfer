@@ -242,39 +242,7 @@
 
                     </nav>
 
-                    <div class="search-box-outer">
-
-                        <div class="dropdown">
-
-                            <button class="search-box-btn" type="button" id="dropdownMenu3"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i
-                                    class="fas fa-search"></i></button>
-
-                            <div class="dropdown-menu search-panel" aria-labelledby="dropdownMenu3">
-
-                                <div class="form-container">
-
-                                    <form method="post" action="blog.html">
-
-                                        <div class="form-group">
-
-                                            <input type="search" name="search-field" value=""
-                                                placeholder="Search...." required="">
-
-                                            <button type="submit" class="search-btn"><span
-                                                    class="fas fa-search"></span></button>
-
-                                        </div>
-
-                                    </form>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
+                   
 
                 </div>
 
@@ -515,31 +483,37 @@
 
     <div class="footer-bottom">
 
-        <!-- scroll to top -->
+		<!-- scroll to top -->
 
-        <button class="scroll-top style-one scroll-to-target" data-target="html">
+		<button class="scroll-top style-one scroll-to-target" data-target="html">
 
-            <i class="fas fa-angle-up"></i>
+			<i class="fas fa-angle-up"></i>
 
-        </button>
+		</button>
 
-        <div class="auto-container">
+		<div class="auto-container">
 
-            <div class="bottom-inner clearfix">
+			<div class="bottom-inner clearfix">
 
-                <div class="copyright pull-left">
+				<div class="copyright pull-left">
 
-                    <p>Copyright &copy; <a href="">Connectinfer</a>, All Rights Reserved.</p>
+					<p>Copyright &copy; <a href="">Connectinfer</a>, All Rights Reserved.</p>
 
-                </div>
+				</div>
 
+				<ul class="footer-nav pull-right clearfix">
 
+					<li><a href="privacy-policy.html">Privacy Policy</a></li>
 
-            </div>
+					<li><a href="cookie-policy.html">Cookie Policy</a></li>
 
-        </div>
+				</ul>
 
-    </div>
+			</div>
+
+		</div>
+
+	</div>
 
 </footer>
 <!-- main-footer end -->

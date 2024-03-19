@@ -46,8 +46,7 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-        'title' => 'required',
-        'image' => 'nullable|max:2048',      
+        'title' => 'required',           
              
     ]);
   
@@ -56,31 +55,20 @@ class ContactController extends Controller
     }
     $data = $request->all();
 
-if ($request->hasfile('image')) {
 
-    $images = $request->image;
-    $img = time() . rand(100, 999) . '.' . $images->extension();
+        $contact = Contact::first();
+        if($contact == ''){
 
-    $images->move(public_path('/Aboutus'), $img);
-
-    $data['image'] = $img;
-
-}else{
-    $data['image'] = '';
-}
-        $innovation = Aboutus::where('slug',$request->slug)->first();
-        if($innovation == ''){
-
-            $innovation=   Aboutus::create([
+            $contact=   Contact::create([
             'title' => @$request->title? $request->title:'']);
         }
-        $innovation->title = @$request->title;
-        $innovation->slug = @$request->slug;
-        $innovation->sub_title = @$request->sub_title;
-        $innovation->content = @$request->content;
-        $innovation->image = $data['image']??'';
-        $innovation->created_by = auth()->user()->id;
-        $innovation->save();
+        $contact->title = @$request->title;
+        $contact->sub_title = @$request->sub_title;
+        $contact->address = @$request->address;
+        $contact->email = @$request->email;
+        $contact->contact = @$request->contact;
+        $contact->created_by = auth()->user()->id;
+        $contact->save();
      
         return redirect()->back()->with('status','Created Successfully.');
     }
@@ -105,8 +93,7 @@ if ($request->hasfile('image')) {
      */
     public function edit($id)
     {
-        $data = HomeContent::where('_id', $id)->first();
-        return view('homepagecontent.edit',compact('data'));
+        //
     }
 
     /**
@@ -118,139 +105,7 @@ if ($request->hasfile('image')) {
      */
     public function update(Request $request, $id)
     {
-        $validate = Validator::make($request->all(),
-        [
-         'section' => 'required',
-         //'name' => 'required',
-         'name' => ['nullable','max:50', 'regex:/^[\pL\s\-]+$/u',  function ($attribute, $value, $fail) {
-            // Check if the input contains any HTML tags or scripts
-            if ($value !== strip_tags($value)) {
-                $fail('The :attribute cannot contain HTML or scripts.');
-            }
-        }],
-       'head_line' => ['nullable',  function ($attribute, $value, $fail) {
-        // Check if the input contains any HTML tags or scripts
-        if ($value !== strip_tags($value)) {
-            $fail('The :attribute cannot contain HTML or scripts.');
-        }
-      }],
-     'description' => ['nullable',  function ($attribute, $value, $fail) {
-        // Check if the input contains any HTML tags or scripts
-        if ($value !== strip_tags($value)) {
-            $fail('The :attribute cannot contain HTML or scripts.');
-        }
-     }],
-     'image_title' => ['nullable',  function ($attribute, $value, $fail) {
-        // Check if the input contains any HTML tags or scripts
-        if ($value !== strip_tags($value)) {
-            $fail('The :attribute cannot contain HTML or scripts.');
-        }
-    }],
-    'experience' => ['nullable',  function ($attribute, $value, $fail) {
-        // Check if the input contains any HTML tags or scripts
-        if ($value !== strip_tags($value)) {
-            $fail('The :attribute cannot contain HTML or scripts.');
-        }
-    }],
-    'image' =>'nullable|image',
-        ]);
-
-        if ($validate->fails()) {
-            return Redirect::back()->withErrors($validate);
-        }
-        $homepage = HomeContent::where('_id', $id)->first();
-        $file="";
-        if ($request->image != null) {
-          $image = $request->image;
-
-          $fileName = time() . rand(100, 999) . '.' . $image->extension();
-          $image->move(public_path('/images/homepage'), $fileName);
-          $file=$fileName;
-
-        }
-        else{
-            $file = $homepage->image;
-        }
-        $file1="";
-        if ($request->vimage != null) {
-          $image = $request->vimage;
-
-          $fileName = time() . rand(100, 999) . '.' . $image->extension();
-          $image->move(public_path('/images/homepage'), $fileName);
-          $file1=$fileName;
-
-
-        }
-        else{
-            $file1 = $homepage->values_image;
-        }
-        $file_v='';
-        if ($request->video != null) {
-          $video = $request->video;
-
-          $fileName = time() . rand(100, 999) . '.' . $video->extension();
-          $video->move(public_path('/images/homepage'), $fileName);
-          $file_v=$fileName;
-
-
-        }else{
-            $file_v=$homepage->video;
-        }
-
-        $img1="";
-        if ($request->image1 != null) {
-          $image = $request->image1;
-
-          $fileName = time() . rand(100, 999) . '.' . $image->extension();
-          $image->move(public_path('/images/homepage'), $fileName);
-          $img1=$fileName;
-
-
-        }
-        else{
-            $img1=$homepage->fp_image;
-        }
-        $img2="";
-        if ($request->image2 != null) {
-          $image = $request->image2;
-
-          $fileName = time() . rand(100, 999) . '.' . $image->extension();
-          $image->move(public_path('/images/homepage'), $fileName);
-          $img2=$fileName;
-
-
-        }  else{
-            $img2=$homepage->sp_image;
-        }
-        $homepage->update([
-            'name'=> $request->name,
-            'section'=> $request->section,
-            'head_line'=> $request->head_line,
-            'description'=> $request->description,
-            'image'=> $file??'',
-            'video'=> $file_v??'',
-            'image_title'=> $request->image_title,
-            'experience'=> $request->experience,
-            'vision'=> $request->vision,
-            'vision_color'=> $request->color,
-            'vision_image'=> $file??'',
-            'values'=> $request->values,
-            'values_color'=> $request->vcolor,
-            'values_image'=> $file1??'',
-            'vision_content'=> $request->vision_content,
-            'value_content'=> $request->value_content,
-
-            'fp_image'=> $img1??'',
-            'fp_name'=> $request->name1,
-            'fp_designation'=> $request->designation1,
-
-            'sp_image'=> $img2??'',
-            'sp_name'=> $request->name2,
-            'sp_designation'=> $request->designation2,
-            'created_by' => auth()->user()->id,
-
-        ]);
-        return redirect()->route('homepage.index');
+        //
     }
 
     /**

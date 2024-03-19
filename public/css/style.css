@@ -183,12 +183,22 @@
 	 min-width:300px;
 	 z-index: 9;
  }
- 
+ .services-detail ul,.services-detail li{
+	 list-style:disc !important;
+	padding:5px;
+	margin:0px;
+	padding-left: 17px;	
+}
+.services-detail ul ul,.services-detail li li{
+	list-style:circle !important; 
+}
  ul,li{
 	 list-style:none;
 	 padding:0px;
-	 margin:0px;	
+	 margin:0px;
+	 
  }
+ 
  
  .theme-btn{
 	 display:inline-block;
@@ -3650,8 +3660,8 @@
 	 position:relative;
 	 color:#cccccc;
 	 font-size:16px;
-	 display:contents;
-	 text-align: center;
+	
+	
 	
  }
  
@@ -10975,7 +10985,7 @@ p:last-child {
 }
 .header-style-three .header-lower .menu-area {
     position: relative;
-    padding: 0px 80px 0px 45px;
+    padding: 0px 30px 0px 45px;
     border-radius: 50px;
     background-color: #0e0e0e;
 	height: 70px;
