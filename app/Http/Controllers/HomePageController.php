@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Setting;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -13,8 +14,8 @@ class HomePageController extends Controller
      */
     public function index()
     {
-
-        return view('home.home');
+        $setting = Setting::first();
+        return view('home.home',compact('setting'));
     }
 
     /**

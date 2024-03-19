@@ -17,7 +17,7 @@
 
 
     <!--- Favicon --->
-    <link rel="icon" href="{{ asset('img/gov2.jpeg') }}" type="image/x-icon" />
+    <link rel="icon" href="{{ asset('images/logo-4.png') }}" type="image/x-icon" />
     <!-- Bootstrap css -->
 
 
@@ -126,7 +126,7 @@
                         </div>
                         <div class="responsive-logo">
                             <a href="/" class="header-logo">
-                                <img src="{{ asset('img/gov2.jpeg') }}" class="logo-11" />
+                                <img src="{{ asset('images/logo-4.png') }}" class="logo-11" />
                             </a>
                             <a href="/" class="header-logo">
                                 <img src="{{ asset('img/logo-white.png') }}" class="logo-1" />
@@ -478,8 +478,8 @@
                 <aside class="app-sidebar ps ps--active-y open">
                     <div class="main-sidebar-header active">
                         <a class="desktop-logo logo-light active" href="{{ url('homes') }}">
-                            <img src="{{ asset('img//gov.jpeg') }}" width="200px" class="main-logo"
-                                alt="logo" />
+                            <img src="{{ asset('images/logo-4.png') }}" width="200px" class="main-logo"
+                                alt="logo" style="background-color: black" />
                         </a>
                         <a class="desktop-logo logo-dark active" href="/">
                             <img src="{{ asset('img//logo-white.png') }}" class="main-logo" alt="logo" />
@@ -669,6 +669,51 @@
                                                 <span class="side-menu__label">Contact</span>
                                             </a>
                                         </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                        
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'privacy-policy.index' || \Request::route()->getName() == 'privacy-policy.create' || \Request::route()->getName() == 'privacy-policy.edit' ? 'active' : '' }}"
+                                                href="{{ url('admin/privacy-policy') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Privacy Policy</span>
+                                            </a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'cookie-policy.index' || \Request::route()->getName() == 'cookie-policy.create' || \Request::route()->getName() == 'cookie-policy.edit' ? 'active' : '' }}"
+                                                href="{{ url('admin/cookie-policy') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Cookie Policy</span>
+                                            </a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item" data-bs-toggle="slide" href="{{url('/settings')}}">
+                                               <i class="side-menu__icon fe fe-settings"> </i>
+                                               <span class="side-menu__label">Settings</span>
+        
+                                           </a>
+                                       </li>
                                     @endif
                                 @endforeach
                             @endif

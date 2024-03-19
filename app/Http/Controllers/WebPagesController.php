@@ -2,19 +2,26 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aboutus;
+use App\Models\Contact;
+use App\Models\Policy;
+use App\Models\Service;
+use App\Models\Technology;
 use Illuminate\Http\Request;
 
 class WebPagesController extends Controller
 {
     public function aboutUs() {
         
-        return view('pages.about_us');
+        $data=Aboutus::first();
+        return view('pages.about_us',compact('data'));
     }
 
 
     public function technology() {
 
-        return view('pages.technology');
+        $datas=Technology::where('deleted_at',null)->get();
+        return view('pages.technology',compact('datas'));
     }
 
 
@@ -36,13 +43,25 @@ class WebPagesController extends Controller
     }
     public function services() {
 
-        return view('pages.services');
+        $datas=Service::where('deleted_at',null)->get();
+        return view('pages.services',compact('datas'));
     }
     public function contact() {
 
-        return view('pages.contact_us');
+        $data=Contact::first();
+        return view('pages.contact_us',compact('data'));
     }
 
+    public function privacyPolicy() {
+        
+        $data=Policy::where('slug','privacy-policy')->first();
+        return view('pages.policy',compact('data'));
+    }
+    public function cookiePolicy() {
+        
+        $data=Policy::where('slug','cookie-policy')->first();
+        return view('pages.policy',compact('data'));
+    }
 
 
 

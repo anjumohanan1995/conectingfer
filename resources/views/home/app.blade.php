@@ -97,14 +97,16 @@
             <!-- header-lower -->
 
             <div class="header-lower">
-
+                @php
+                @$setting=App\Models\Setting::where('deleted_at',null)->first();
+            @endphp
                 <div class="auto-container">
 
                     <div class="outer-box clearfix">
 
                         <div class="logo-box pull-left">
 
-                            <figure class="logo"><a href="index-3.html"><img src="images/logo-4.png"
+                            <figure class="logo"><a href="index-3.html"><img src="{{ asset('/images/logo/'.@$setting->logo) }}"
                                         alt=""></a></figure>
 
                         </div>
@@ -358,27 +360,24 @@
 
                     <div class="footer-widget logo-widget">
 
-                        <figure class="footer-logo"><a href="index-2.html"><img src="images/logo-4.png"
+                        <figure class="footer-logo"><a href="index-2.html"><img src="{{ asset('/images/logo/'.@$setting->footer_logo) }}"
                                     alt=""></a></figure>
 
                         <div class="text">
 
-                            <p>Customized sensor-based end-to-end IoT solutions to optimize system performance,
-                                reduce risk and drive efficiencies across industrial operations. Assets are
-                                securely connected, monitored and tracked continuously in demanding
-                                environments.</p>
+                            <p>{!! @$setting->footer_content !!}</p>
 
                         </div>
 
                         <ul class="social-links clearfix">
 
-                            <!-- <li><a href="index-3.html"><i class="fab fa-facebook-f"></i></a></li> -->
+                            <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-facebook-f"></i></a></li> -->
 
-                            <li><a href="index-3.html"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="{{ @$setting->linkedin_url }}"><i class="fab fa-linkedin"></i></a></li>
 
-                            <li><a href="index-3.html"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ @$setting->twitter_url }}"><i class="fab fa-twitter"></i></a></li>
 
-                            <!-- <li><a href="index-3.html"><i class="fab fa-dribbble"></i></a></li> -->
+                            <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-dribbble"></i></a></li> -->
 
                         </ul>
 
@@ -403,15 +402,15 @@
 
                             <ul class="links-list clearfix">
 
-                                <li><a href="index.html">Home</a></li>
+                                <li><a href="/">Home</a></li>
 
-                                <li><a href="about.html">About us</a></li>
+                                <li><a href="/about-us">About us</a></li>
 
-                                <li><a href="industrial.html">Solutions</a></li>
+                                <li><a href="/">Solutions</a></li>
 
-                                <li><a href="technology.html">Technology</a></li>
+                                <li><a href="/technology">Technology</a></li>
 
-                                <li><a href="services.html">Services</a></li>
+                                <li><a href="/services">Services</a></li>
 
 
 
@@ -441,11 +440,7 @@
 
                                     <h4>Address</h4>
 
-                                    <p>5457 Twin Knolls Rd<br>
-
-                                        Ste 300 PMB 1045<br>
-
-                                        Columbia, MD 21045</p>
+                                    <p>{!! @$setting->default_address !!}</p>
 
                                 </li>
 
@@ -453,7 +448,7 @@
 
                                     <h4>Phone No.</h4>
 
-                                    <p><a href="tel:0088827240">+1 408 673 0959</a></p>
+                                    <p><a href="tel:0088827240">{{ @$setting->default_phone }}</a></p>
 
                                 </li>
 
@@ -462,7 +457,7 @@
                                     <h4>Email Address</h4>
 
                                     <p><a
-                                            href="mailto:solutions@connectinfer.com">solutions@connectinfer.com</a>
+                                            href="mailto:{{ @$setting->wel_email }}">{{ @$setting->wel_email }}</a>
                                     </p>
 
                                 </li>
@@ -497,15 +492,15 @@
 
 				<div class="copyright pull-left">
 
-					<p>Copyright &copy; <a href="">Connectinfer</a>, All Rights Reserved.</p>
+					<p>{{ @$setting->cpy_txt }}</p>
 
 				</div>
 
 				<ul class="footer-nav pull-right clearfix">
 
-					<li><a href="privacy-policy.html">Privacy Policy</a></li>
+					<li><a href="{{ url('privacy-policy') }}">Privacy Policy</a></li>
 
-					<li><a href="cookie-policy.html">Cookie Policy</a></li>
+					<li><a href="{{ url('cookie-policy') }}">Cookie Policy</a></li>
 
 				</ul>
 
