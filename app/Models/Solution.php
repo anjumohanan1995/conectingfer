@@ -14,5 +14,6 @@ class Solution extends Eloquent
     protected $connection = 'mongodb';
     protected $collection = 'solutions';
 
-    protected $guarded = [];
+    protected $guarded = []; 
+
 }

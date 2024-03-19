@@ -28,66 +28,67 @@
                         <div class="card">
                             <div class="card-body  table-new">
 
-                                <form class="m-5" action="{{ route('solutions.store') }}" method="POST">
+                           
+
+                                <form class="m-5" action="{{ route('solutions.addContent.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf <!-- Add CSRF token field -->
 
+                                    <input type="hidden" name="content_id" value="{{ $id }}">
+
+
                                     <div class="mb-3">
-                                        <label for="title" class="form-label">Title</label>
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                            id="title" name="title" placeholder="Enter title"
-                                            value="{{ old('title') }}">
-                                        @error('title')
+                                        <label for="content_title" class="form-label">Title</label>
+                                        <input type="text" class="form-control @error('content_title') is-invalid @enderror"
+                                            id="content_title" name="content_title" value="{{ $content->content_title }}"
+                                            placeholder="Enter title" value="{{ old('content_title') }}">
+                                        @error('content_title')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
 
-                                    {{-- <div class="mb-3">
-                                        <label for="link_type" class="form-label">Link Type</label>
-                                        <select class="form-select @error('link_type') is-invalid @enderror"
-                                            name="link_type" id="link_type">
-                                            <option selected disabled value="">Select link type</option>
-                                            <option value="slug" {{ old('link_type') == 'slug' ? 'selected' : '' }}>Slug
-                                            </option>
-                                            <option value="link" {{ old('link_type') == 'link' ? 'selected' : '' }}>Link
-                                            </option>
-                                        </select>
-                                        @error('link_type')
-                                            <div class="invalid-feedback">{{ $message }}</div>
-                                        @enderror
-                                    </div> --}}
 
                                     <div class="mb-3">
-                                        <label for="link_type" class="form-label">Link Type</label>
-                                        <textarea class="ckeditor form-control" name="description"></textarea>
+                                        <label for="link_type" class="form-label">Description</label>
+                                        <textarea class="ckeditor form-control" name="description">{{ $content->description }}</textarea>
                                     </div>
-                            
 
-                            <div class="mb-3" id="linkInput"
-                                style="display: {{ old('link_type') == 'link' ? 'block' : 'none' }};">
-                                <label for="link" class="form-label">Link</label>
-                                <input type="text" class="form-control @error('link') is-invalid @enderror"
-                                    id="link" name="link" placeholder="Enter link  ( eg: page/web-home )"
-                                    value="{{ old('link') }}">
-                                @error('link')
-                                    <div class="invalid-feedback">{{ $message }}</div>
-                                @enderror
+
+                                    <div class="mb-3">
+                                        <label for="images" class="form-label">Upload Images</label>
+                                        <input type="file" id="images" name="images[]" accept="image/*" multiple>
+                                    </div>
+
+
+                                    @if ($content->image)
+                                        <label for="images" class="form-label">Uploaded Images</label>
+
+                                        <div class="images-container">
+                                            @foreach ($content->image as $image)
+                                                <img src="{{ asset('content/' . $image) }}" alt="Image"
+                                                    style="width: 200px; height: 200px; object-fit: cover;">
+                                            @endforeach
+                                        </div>
+                                    @endif
+
+
+                                    <!-- Submit Button -->
+                                    <div class="mt-5">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+
+
+
                             </div>
-
-                            <!-- Submit Button -->
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                            </form>
-
-
-
                         </div>
                     </div>
                 </div>
+                <!-- /row -->
             </div>
             <!-- /row -->
         </div>
-        <!-- /row -->
-    </div>
-    <!-- /container -->
+        <!-- /container -->
     </div>
     <!-- /main-content -->
     <div class="modal fade" id="confirmation-popup">
@@ -121,25 +122,5 @@
 
 
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-            // Function to toggle visibility based on the selected value
-            function toggleVisibility(selectedValue) {
-                if (selectedValue === 'link') {
-                    $('#linkInput').show();
-                } else {
-                    $('#linkInput').hide();
-                }
-            }
-
-            // Initial visibility state based on the selected value
-            toggleVisibility($('#link_type').val());
-
-            // Event listener for changes in the "Link Type" dropdown
-            $('#link_type').on('change', function() {
-                var selectedValue = $(this).val();
-                toggleVisibility(selectedValue);
-            });
-        });
-    </script>
+    <script type="text/javascript"></script>
 @endsection
