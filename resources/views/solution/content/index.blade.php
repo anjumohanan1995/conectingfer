@@ -28,18 +28,21 @@
                         <div class="card">
                             <div class="card-body  table-new">
 
-                                <form class="m-5" action="{{ route('solutions.addContent.store') }}" method="POST" enctype="multipart/form-data">
+                           
+
+                                <form class="m-5" action="{{ route('solutions.addContent.store') }}" method="POST"
+                                    enctype="multipart/form-data">
                                     @csrf <!-- Add CSRF token field -->
 
                                     <input type="hidden" name="content_id" value="{{ $id }}">
 
 
                                     <div class="mb-3">
-                                        <label for="title" class="form-label">Title</label>
-                                        <input type="text" class="form-control @error('title') is-invalid @enderror"
-                                            id="title" name="title" placeholder="Enter title"
-                                            value="{{ old('title') }}">
-                                        @error('title')
+                                        <label for="content_title" class="form-label">Title</label>
+                                        <input type="text" class="form-control @error('content_title') is-invalid @enderror"
+                                            id="content_title" name="content_title" value="{{ $content->content_title }}"
+                                            placeholder="Enter title" value="{{ old('content_title') }}">
+                                        @error('content_title')
                                             <div class="invalid-feedback">{{ $message }}</div>
                                         @enderror
                                     </div>
@@ -47,8 +50,9 @@
 
                                     <div class="mb-3">
                                         <label for="link_type" class="form-label">Description</label>
-                                        <textarea class="ckeditor form-control" name="description"></textarea>
+                                        <textarea class="ckeditor form-control" name="description">{{ $content->description }}</textarea>
                                     </div>
+
 
                                     <div class="mb-3">
                                         <label for="images" class="form-label">Upload Images</label>
@@ -56,9 +60,22 @@
                                     </div>
 
 
+                                    @if ($content->image)
+                                        <label for="images" class="form-label">Uploaded Images</label>
+
+                                        <div class="images-container">
+                                            @foreach ($content->image as $image)
+                                                <img src="{{ asset('content/' . $image) }}" alt="Image"
+                                                    style="width: 200px; height: 200px; object-fit: cover;">
+                                            @endforeach
+                                        </div>
+                                    @endif
+
 
                                     <!-- Submit Button -->
-                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="mt-5">
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
                                 </form>
 
 
@@ -105,7 +122,5 @@
 
 
 
-    <script type="text/javascript">
-  
-    </script>
+    <script type="text/javascript"></script>
 @endsection

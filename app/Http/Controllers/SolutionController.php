@@ -249,44 +249,67 @@ class SolutionController extends Controller
 
     public function addContentIndex($id)
     {
+        $content = Solution::findOrFail($id);
 
-        // dd('added');
-
-        return view('solution.content.index', compact('id'));
+        return view('solution.content.index', compact('id', 'content'));
     }
 
 
 
     public function addContentStore(Request $request)
     {
+
         // Validate the incoming request data
         $request->validate([
-            'title' => 'required|string|max:255',
+            'content_title' => 'required|string|max:255',
             'description' => 'required|string',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Example validation rules for images
         ]);
-    
+
         // Find the content to update
         $content = Solution::findOrFail($request->content_id);
-    
+
         // Update the content
-        $content->title = $request->input('title');
+        $content->content_title = $request->input('content_title');
         $content->description = $request->input('description');
-    
+
         // Handle file uploads
         if ($request->hasFile('images')) {
-            foreach ($request->file('images') as $image) {
-                $extension = $image->getClientOriginalExtension();
-                $filename = time() . '_' . uniqid() . '.' . $extension;
-                $image->move('content/', $filename);
-                    }
+            $imageNames = [];
+
+            // Handle file uploads
+            if ($request->hasFile('images')) {
+                foreach ($request->file('images') as $image) {
+                    $extension = $image->getClientOriginalExtension();
+                    $filename = time() . '_' . uniqid() . '.' . $extension;
+                    $image->move('content/', $filename);
+                    $imageNames[] = $filename; // Add filename to array
+                }
+            }
+
+            $content->image = $imageNames;
         }
-    
+
+
+
         // Save the content after updating attributes and associating images
         $content->save();
-    
+
         // Redirect back or return response
         return redirect()->route('solutions.index')->with('success', 'Content updated successfully');
     }
-    
+
+
+    public function getSolutionsPage($slug)  {
+
+        
+
+        $content = Solution::where('link', '/solution/' . $slug)->first();
+        $content_list = Solution::get();
+
+        // dd($content);
+
+
+        return view('pages.solutions',compact('content','content_list'));
+    }
 }
