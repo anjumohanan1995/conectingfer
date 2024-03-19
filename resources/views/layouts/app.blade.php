@@ -632,12 +632,41 @@
                                                 <span class="side-menu__label">Menu</span>
                                             </a>
                                         </li>
-
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'about-us.index'  ? 'active' : '' }}"
+                                                href="{{ url('admin/about-us') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">About Us</span>
+                                            </a>
+                                        </li>
                                         <li class="slide">
                                             <a class="side-menu__item {{ \Request::route()->getName() == 'solutions.index' || \Request::route()->getName() == 'solutions.create' || \Request::route()->getName() == 'solutions.edit' ? 'active' : '' }}"
                                                 href="{{ url('solutions') }}">
                                                 <i class="side-menu__icon fe fe-airplay"> </i>
                                                 <span class="side-menu__label">Solutions</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'technology_list.index' || \Request::route()->getName() == 'technology_list.create' || \Request::route()->getName() == 'technology_list.edit' ? 'active' : '' }}"
+                                                href="{{ url('technology_list') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Technology</span>
+                                            </a>
+                                        </li>
+
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'service_list.index' || \Request::route()->getName() == 'service_list.create' || \Request::route()->getName() == 'service_list.edit' ? 'active' : '' }}"
+                                                href="{{ url('service_list') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Services</span>
+                                            </a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'contact.index' || \Request::route()->getName() == 'service_list.create' || \Request::route()->getName() == 'service_list.edit' ? 'active' : '' }}"
+                                                href="{{ url('admin/contact') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Contact</span>
                                             </a>
                                         </li>
                                     @endif
