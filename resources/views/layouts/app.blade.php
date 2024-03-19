@@ -663,10 +663,17 @@
                                             </a>
                                         </li>
                                         <li class="slide">
-                                            <a class="side-menu__item {{ \Request::route()->getName() == 'contact.index' || \Request::route()->getName() == 'service_list.create' || \Request::route()->getName() == 'service_list.edit' ? 'active' : '' }}"
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'contact.index' ? 'active' : '' }}"
                                                 href="{{ url('admin/contact') }}">
                                                 <i class="side-menu__icon fe fe-airplay"> </i>
                                                 <span class="side-menu__label">Contact</span>
+                                            </a>
+                                        </li>
+                                        <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'contact-form.index'  ? 'active' : '' }}"
+                                                href="{{ url('contact-form') }}">
+                                                <i class="side-menu__icon fe fe-airplay"> </i>
+                                                <span class="side-menu__label">Contact Form</span>
                                             </a>
                                         </li>
                                     @endif

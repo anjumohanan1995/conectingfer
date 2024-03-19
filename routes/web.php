@@ -10,6 +10,7 @@ use App\Http\Controllers\TechnologyController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ContactFormControler;
 use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\UserController;
@@ -53,6 +54,13 @@ route::get('energy', [WebPagesController::class, 'energy']);
 route::get('services', [WebPagesController::class, 'services']);
 route::get('contact', [WebPagesController::class, 'contact']);
 // web pages routes ends here .
+
+
+//contact form controller starts here .
+Route::resource('/contact-form', ContactFormControler::class);
+Route::get('/contact-form/get-list', [ContactFormControler::class, 'getContactForm'])->name('get.contact-forms');
+
+//contact form controller ends here .
 
 
 Route::get('dashboard', [CustomAuthController::class, 'dashboard']);

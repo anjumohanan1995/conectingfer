@@ -24,7 +24,7 @@ class ContactController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index(Request $request)
+        public function index(Request $request)
     {       
         $data = Contact::first();
         return view('contact',compact('data'));
