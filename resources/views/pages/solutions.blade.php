@@ -78,9 +78,9 @@
                                 </div>
 
                                 <br>
-                                <div class="learn">
+                                {{-- <div class="learn">
                                     <a href="contact.html" class="theme-btn btn-style-three">Learn More</a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
                     </div>
