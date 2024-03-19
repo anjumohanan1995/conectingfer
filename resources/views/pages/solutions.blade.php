@@ -33,7 +33,7 @@
                             <ul class="services-categories">
                                 @foreach ($content_list as $item)
                                     <li class="{{ '/' . $currentPath == $item->link ? 'active' : '' }}">
-                                        <a href="{{ $item->link }}">{{ $item->title }}</a>
+                                        <a href="{{ @$item->link }}">{{ @$item->title }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -42,13 +42,13 @@
 
 
                         </div>
-
+                        @if(!empty($content['image']))
                         @foreach ($content['image'] as $image)
                             <div class="image col-12 mt-5    d-flex justify-content-center align-items-center">
-                                <img class="solution__content--size" src="{{ asset('content/' . $image) }}" alt="{{ $image }}" />
+                                <img class="solution__content--size" src="{{ asset('content/' . @$image) }}" alt="{{ $image }}" />
                             </div>
                         @endforeach
-
+                        @endif
 
 
 
@@ -70,17 +70,16 @@
                                     <div class="title">Connectinfer</div>
                                     <h2>{{ @$content->title }}</h2>
                                 </div>
-                                <div class="bold-text ">Solutions for Industrial Automation and Sustainability
-                                </div>
+                               
 
                                 <div>
                                     {!! @$content->description !!}
                                 </div>
 
                                 <br>
-                                {{-- <div class="learn">
-                                    <a href="contact.html" class="theme-btn btn-style-three">Learn More</a>
-                                </div> --}}
+                                <div class="learn">
+                                    <a href="{{ url('contact') }}" class="theme-btn btn-style-three">Learn More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
