@@ -2,12 +2,15 @@
 use App\Http\Controllers\AboutusController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeServiceController;
+use App\Http\Controllers\IndustrialServiceController;
 use App\Http\Controllers\MainMenuController;
 use App\Http\Controllers\PolicyController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\SubMenuController;
 use App\Http\Controllers\TechnologyController;
+use App\Http\Controllers\WhyChooseUsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CustomAuthController;
 use App\Http\Controllers\Auth\LoginController;
@@ -18,6 +21,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SolutionController;
 use App\Http\Controllers\WebPagesController;
+use App\Http\Controllers\SlidercategoryController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\InnovationController;
 use App\Models\MainMenu;
 
 // use App\Http\Controllers\HomeController;
@@ -157,6 +163,8 @@ Route::get('getSubMenus', [SubMenuController::class, 'getSubMenus'])->name('getS
 Route::post('/sub_menus/{mainMenu}', [SubMenuController::class, 'destroy'])->name('sub_menus.delete');
 //sub menus route ends here.
 
+Route::resource('slidercategories', SlidercategoryController::class);
+Route::resource('sliders', SliderController::class);
 
 //solution route starts here 
 Route::resource('solutions', SolutionController::class);
@@ -183,22 +191,6 @@ Route::post('admin/contact-store',[ContactController::class,'store'])->name('con
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 Route::get('settings','App\Http\Controllers\SettingController@genreal')->name('gen.set');
 Route::post('setting/store','App\Http\Controllers\SettingController@store')->name('setting.store');
 
@@ -207,3 +199,16 @@ Route::post('admin/privacy-policy/store',[PolicyController::class,'privacyPolicy
 
 Route::get('/admin/cookie-policy', [PolicyController::class, 'cookiePolicy'])->name('cookiePolicy.index');
 Route::post('admin/cookie-policy/store',[PolicyController::class,'cookiePolicyStore'])->name('cookiePolicy.store');
+
+Route::resource('industrial-services', IndustrialServiceController::class);
+Route::get('getIndustrialServices', [IndustrialServiceController::class, 'getIndustrialServices'])->name('getIndustrialServices');
+
+Route::resource('home-services', HomeServiceController::class);
+Route::get('getHomeServices', [HomeServiceController::class, 'getHomeServices'])->name('getHomeServices');
+
+Route::resource('why-choose-us', WhyChooseUsController::class);
+Route::get('getWhyChooseUs', [WhyChooseUsController::class, 'getWhyChooseUs'])->name('getWhyChooseUs');
+Route::post('whyChooseUsSetting', [WhyChooseUsController::class, 'whyChooseUsSetting'])->name('why-choose-us.setting');
+
+Route::get('/innovation',[InnovationController::class, 'index'])->name('innovations.index');
+Route::post('/innovation/store',[InnovationController::class, 'store'])->name('innovations.store');

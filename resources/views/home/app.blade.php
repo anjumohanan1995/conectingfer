@@ -492,7 +492,7 @@
 
 				<div class="copyright pull-left">
 
-					<p>{{ @$setting->cpy_txt }}</p>
+					<p>{!! @$setting->cpy_txt !!}</p>
 
 				</div>
 

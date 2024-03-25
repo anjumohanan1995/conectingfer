@@ -43,7 +43,8 @@
 
                         </div>
                         @if(!empty($content['image']))
-                        @foreach ($content['image'] as $image)
+                        @php $array = json_decode($content['image'], true); @endphp
+                        @foreach ($array as $image)
                             <div class="image col-12 mt-5    d-flex justify-content-center align-items-center">
                                 <img class="solution__content--size" src="{{ asset('content/' . @$image) }}" alt="{{ $image }}" />
                             </div>

@@ -6,281 +6,83 @@
         <div class="rev_slider_wrapper fullwidthbanner-container" id="rev_slider_one_wrapper" data-source="gallery">
             <div class="rev_slider fullwidthabanner" id="rev_slider_one" data-version="5.4.1">
                 <ul>
-
+                    @if(count(@$sliders_top) > 0)
+                    @php
+                        $index = 1688; // Initialize the index value outside the loop
+                    @endphp
+                    @foreach ($sliders_top as $slider)
                     <li data-transition="parallaxvertical" data-description="Slide Description" data-easein="default"
-                        data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
-                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1688" data-masterspeed="default"
-                        data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5=""
-                        data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0"
-                        data-saveperformance="off" data-slotamount="default" data-thumb="images/1.jpg">
-                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
-                            data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="images/1.jpg">
+                    data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
+                    data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-{{ $index }}" data-masterspeed="default"
+                    data-param1="" data-param10="" data-param2="" data-param3="" data-param4="" data-param5=""
+                    data-param6="" data-param7="" data-param8="" data-param9="" data-rotate="0"
+                    data-saveperformance="off" data-slotamount="default" data-thumb="{{ asset('/admin/uploads/thumbnails/'.$slider->image)}}">
+                    <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
+                        data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina="" src="{{ asset('/admin/uploads/thumbnails/'.$slider->image)}}">
 
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['15','15','15','15']"
-                            data-voffset="['-10','-10','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="border-layer"></div>
+                    <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                        data-type="text" data-height="none" data-width="['650','650','650','450']"
+                        data-whitespace="normal" data-hoffset="['15','15','15','15']"
+                        data-voffset="['-10','-10','-80','-80']" data-x="['left','left','left','left']"
+                        data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
+                        data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="border-layer"></div>
+                    </div>
+
+                    <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                        data-type="text" data-height="none" data-width="['650','650','650','450']"
+                        data-whitespace="normal" data-hoffset="['80','80','15','15']"
+                        data-voffset="['-60','-60','-80','-80']" data-x="['left','left','left','left']"
+                        data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
+                        data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <h2>{{ @$slider->title }}</h2>
+                    </div>
+
+                    <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                        data-type="text" data-height="none" data-width="['650','650','650','450']"
+                        data-whitespace="normal" data-hoffset="['80','80','15','15']"
+                        data-voffset="['55','55','30','30']" data-x="['left','left','left','left']"
+                        data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
+                        data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="text"></div>
+                    </div>
+
+                    <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                        data-type="text" data-height="none" data-whitespace="normal"
+                        data-width="['650','650','650','450']" data-hoffset="['270','270','15','15']"
+                        data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
+                        data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
+                        data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="link-box">
+                            <a href="{{ @$slider->button_url }}" class="theme-btn btn-style-two">{{ @$slider->button_text }}</a>
                         </div>
+                    </div>
 
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['-60','-60','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <h2>Asset monitoring <br> and control </h2>
+                    <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
+                        data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
+                        data-type="text" data-height="none" data-whitespace="normal"
+                        data-width="['650','650','650','450']" data-hoffset="['480','480','15','15']"
+                        data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
+                        data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
+                        data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
+                        <div class="icons-box clearfix">
+                            <span class="icon flaticon-manufacturing"></span>
+                            <span class="icon flaticon-robot-1"></span>
+                            <span class="icon flaticon-helmet-2"></span>
                         </div>
+                    </div>
+                    @php
+                    $index++; // Increment the index value for the next iteration
+                @endphp
+                </li>
 
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['55','55','30','30']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="text"></div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['270','270','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="link-box">
-                                <a href="about.html" class="theme-btn btn-style-two">Learn more</a>
-                            </div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['480','480','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="icons-box clearfix">
-                                <span class="icon flaticon-manufacturing"></span>
-                                <span class="icon flaticon-robot-1"></span>
-                                <span class="icon flaticon-helmet-2"></span>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li data-transition="parallaxvertical" data-description="Slide Description" data-easein="default"
-                        data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
-                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1689"
-                        data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
-                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
-                        data-rotate="0" data-saveperformance="off" data-slotamount="default"
-                        data-thumb="images/main-slider/2.jpg" data-title="Slide Title">
-                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
-                            data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina=""
-                            src="images/2.jpg">
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['15','15','15','15']"
-                            data-voffset="['-10','-10','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="border-layer"></div>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['-60','-60','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <h2>Process optimization</h2>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['55','55','30','30']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="text"></div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['270','270','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="link-box">
-                                <a href="about.html" class="theme-btn btn-style-two">Learn more</a>
-                            </div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['480','480','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="icons-box clearfix">
-                                <span class="icon flaticon-manufacturing"></span>
-                                <span class="icon flaticon-robot-1"></span>
-                                <span class="icon flaticon-helmet-2"></span>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li data-transition="parallaxvertical" data-description="Slide Description" data-easein="default"
-                        data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
-                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1690"
-                        data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
-                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
-                        data-rotate="0" data-saveperformance="off" data-slotamount="default"
-                        data-thumb="images/main-slider/3.jpg" data-title="Slide Title">
-                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
-                            data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina=""
-                            src="images/3.jpg">
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['15','15','15','15']"
-                            data-voffset="['-10','-10','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="border-layer"></div>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['-60','-60','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <h2>Dashboard analytics</h2>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['55','55','30','30']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="text"></div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['270','270','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="link-box">
-                                <a href="about.html" class="theme-btn btn-style-two">Learn more</a>
-                            </div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['480','480','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="icons-box clearfix">
-                                <span class="icon flaticon-manufacturing"></span>
-                                <span class="icon flaticon-robot-1"></span>
-                                <span class="icon flaticon-helmet-2"></span>
-                            </div>
-                        </div>
-
-                    </li>
-
-                    <li data-transition="parallaxvertical" data-description="Slide Description" data-easein="default"
-                        data-easeout="default" data-fsmasterspeed="1500" data-fsslotamount="7" data-fstransition="fade"
-                        data-hideafterloop="0" data-hideslideonmobile="off" data-index="rs-1691"
-                        data-masterspeed="default" data-param1="" data-param10="" data-param2="" data-param3=""
-                        data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9=""
-                        data-rotate="0" data-saveperformance="off" data-slotamount="default"
-                        data-thumb="images/main-slider/2.jpg" data-title="Slide Title">
-                        <img alt="" class="rev-slidebg" data-bgfit="cover" data-bgparallax="10"
-                            data-bgposition="center center" data-bgrepeat="no-repeat" data-no-retina=""
-                            src="images/4.jpg">
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['15','15','15','15']"
-                            data-voffset="['-10','-10','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":0,"speed":1500,"frame":"0","from":"x:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="border-layer"></div>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['-60','-60','-80','-80']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1000,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <h2>Logistics Management</h2>
-                        </div>
-
-                        <div class="tp-caption" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-width="['650','650','650','450']"
-                            data-whitespace="normal" data-hoffset="['80','80','15','15']"
-                            data-voffset="['55','55','30','30']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":1500,"speed":1500,"frame":"0","from":"y:[-100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;","mask":"x:0px;y:0px;s:inherit;e:inherit;","to":"o:1;","ease":"Power3.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="text"></div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['270','270','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2000,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="link-box">
-                                <a href="about.html" class="theme-btn btn-style-two">Learn more</a>
-                            </div>
-                        </div>
-
-                        <div class="tp-caption tp-resizeme" data-paddingbottom="[0,0,0,0]" data-paddingleft="[0,0,0,0]"
-                            data-paddingright="[0,0,0,0]" data-paddingtop="[0,0,0,0]" data-responsive_offset="on"
-                            data-type="text" data-height="none" data-whitespace="normal"
-                            data-width="['650','650','650','450']" data-hoffset="['480','480','15','15']"
-                            data-voffset="['155','155','120','120']" data-x="['left','left','left','left']"
-                            data-y="['middle','middle','middle','middle']" data-textalign="['top','top','top','top']"
-                            data-frames='[{"delay":2500,"speed":2000,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":300,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'>
-                            <div class="icons-box clearfix">
-                                <span class="icon flaticon-manufacturing"></span>
-                                <span class="icon flaticon-robot-1"></span>
-                                <span class="icon flaticon-helmet-2"></span>
-                            </div>
-                        </div>
-
-                    </li>
-
+                    @endforeach
+                    @endif
+                  
                 </ul>
 
             </div>
@@ -311,58 +113,9 @@
                         <!-- Sec Title -->
                         <div class="sec-title wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
                             <div class="title">We are connectifer</div>
-                            <h2>Transforming <br> With Innovations</h2>
+                            <h2>{{ @$innovation->title }}</h2>
                         </div>
-                        <div class="bold-text">ConnectInfer has brought to the global market, innovations in factory
-                            automation,
-                            telecommunications, test and measurement, automotive, medical imaging, radar, defense,
-                            truck trailer telematics, industrial controls, mining, agriculture, and asset monitoring.</div>
-                        <div class="text">With our experience in applications development, deployment, and manufacturing
-                            operations,
-                            we provide customized platforms to solve critical problems, drive profitable growth and achieve
-                            operational excellence.</div>
-
-                        <!-- Counter Box -->
-                        <div class="counter-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
-
-                            <div class="fact-counter">
-                                <div class="clearfix">
-
-                                    <!--Column-->
-                                    <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
-                                        <div class="inner">
-                                            <div class="count-outer count-box">
-                                                <span class="count-text" data-speed="2000" data-stop="25">0</span>+
-                                                <h4 class="counter-title">Years Experience</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Column-->
-                                    <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
-                                        <div class="inner">
-                                            <div class="count-outer count-box">
-                                                <span class="count-text" data-speed="2500" data-stop="36">0</span>
-                                                <h4 class="counter-title">Industries Served</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!--Column-->
-                                    <div class="column counter-column col-lg-4 col-md-4 col-sm-12">
-                                        <div class="inner">
-                                            <div class="count-outer count-box">
-                                                <span class="count-text" data-speed="3000" data-stop="350">0</span>+
-                                                <h4 class="counter-title">Solutions</h4>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
+                      {!! @$innovation->description !!}
 
                     </div>
                 </div>
@@ -370,12 +123,15 @@
                 <!-- Imaages Column -->
                 <div class="images-column col-lg-6 col-md-12 col-sm-12">
                     <div class="inner-column">
+                        @if (!empty($innovation->image))
+                        @php $inntns = json_decode($innovation->image, true); @endphp
+                        @foreach ($inntns as $inn_img)
                         <div class="image wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <img src="images/innovator.jpg" alt="" />
+                            <img src="{{ asset('innovations/' . $inn_img) }}" alt="" />
                         </div>
-                        <div class="image wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
-                            <img src="images/innovator-1.jpg" alt="" />
-                        </div>
+                        @endforeach                 
+                        @endif
+                   
                     </div>
                 </div>
 
@@ -516,65 +272,21 @@
     <section class="services-section">
         <div class="auto-container">
             <div class="row clearfix">
-
+                @foreach ($home_services as $home_service)
                 <!-- Services Block -->
                 <div class="services-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
                     <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                         <div class="big-icon flaticon-settings-4"></div>
                         <div class="icon-box">
-                            <span class="icon flaticon-drill-3"></span>
+                            {!! @$home_service->icon !!}
                         </div>
-                        <h3><a href="services-1.html">End-to-end solutions</a></h3>
-                        <div class="text">Industrial automation, machinery monitoring and control, process optimization,
-                            energy
-                            efficiency improvement.</div>
-                        <a class="arrow" href="contact.html"><span class="icon flaticon-next"></span></a>
+                        <h3><a href="services-1.html">{{ @$home_service->title }}</a></h3>
+                        {!! @$home_service->description !!}
+                        <a class="arrow" href="{{ url('contact') }}"><span class="icon flaticon-next"></span></a>
                     </div>
                 </div>
-
-                <!-- Services Block -->
-                <div class="services-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInUp" data-wow-delay="300ms" data-wow-duration="1500ms">
-                        <div class="big-icon flaticon-settings-4"></div>
-                        <div class="icon-box">
-                            <span class="icon flaticon-safety"></span>
-                        </div>
-                        <h3><a href="services-2.html">Serving several industries</a></h3>
-                        <div class="text">Manufacturing, industrial, combustion, oil and gas, smart cities, utilities,
-                            transportation,
-                            supply chain and logistics.</div>
-                        <a class="arrow" href="contact.html"><span class="icon flaticon-next"></span></a>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInUp" data-wow-delay="600ms" data-wow-duration="1500ms">
-                        <div class="big-icon flaticon-settings-4"></div>
-                        <div class="icon-box">
-                            <span class="icon flaticon-tools-1"></span>
-                        </div>
-                        <h3><a href="services-1.html">Product Design and Development</a></h3>
-                        <div class="text">Secure connectivity platforms, sensors, edge computing, cloud based remote
-                            device
-                            management.</div>
-                        <a class="arrow" href="contact.html"><span class="icon flaticon-next"></span></a>
-                    </div>
-                </div>
-
-                <!-- Services Block -->
-                <div class="services-block col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                    <div class="inner-box wow fadeInUp" data-wow-delay="900ms" data-wow-duration="1500ms">
-                        <div class="big-icon flaticon-settings-4"></div>
-                        <div class="icon-box">
-                            <span class="icon flaticon-tape-measure"></span>
-                        </div>
-                        <h3><a href="services-2.html">Firmware and application development</a></h3>
-                        <div class="text">Proactive maintenance planning, dashboards for intuitive at-a-glance operations
-                            oversight, machine learning algorithms for predictive fault detection.</div>
-                        <a class="arrow" href="contact.html"><span class="icon flaticon-next"></span></a>
-                    </div>
-                </div>
+                @endforeach
+               
 
             </div>
         </div>
@@ -600,9 +312,9 @@
 
                         <div class="sec-title light">
 
-                            <h5>WHY CHOOSE US</h5>
+                            <h5>{{ @$setting->why_choose_subtitle }}</h5>
 
-                            <h2>Why people select us</h2>
+                            <h2>{{ @$setting->why_choose_title }}</h2>
 
                             <div class="divider" style="background-image: url(images/divider-2.png);"></div>
 
@@ -642,46 +354,29 @@
 
                     <div class="inner-column wow fadeInRight animated" data-wow-delay="00ms" data-wow-duration="1500ms">
 
+                        @foreach ($why_choose_us as $choose)
+                            
+                       
                         <div class="chooseus-block-one">
 
                             <div class="inner-box">
 
                                 <figure class="icon-box">
 
-                                    <img src="images/icon-6.png" alt="">
+                                    <img src="{{ asset('why_choose_us/' . $choose->image) }}" alt="">
 
                                     <div class="shape" style="background-image: url(images/icons-shape-1.png);"></div>
 
                                 </figure>
 
-                                <h3>Worldwide Installations</h3>
+                                <h3>{{ @$choose->title }}</h3>
 
-                                <p>Global deployments of solutions that are continuously monitored. Reduce downtime
-                                    through insights to prevent critical failures.</p>
-
-                            </div>
-
-                        </div>
-
-                        <div class="chooseus-block-one">
-
-                            <div class="inner-box">
-
-                                <figure class="icon-box">
-
-                                    <img src="images/icon-9.png" alt="">
-
-                                    <div class="shape" style="background-image: url(images/icons-shape-1.png);"></div>
-
-                                </figure>
-
-                                <h3>Full-service Design and Manufacturing</h3>
-
-                                <p>Concept development, engineering design, procurement, manufacturing, and logistics</p>
+                                <p>{!! @$choose->description !!}</p>
 
                             </div>
 
                         </div>
+                        @endforeach                  
 
                     </div>
 
@@ -754,78 +449,24 @@
                 </div>
 
                 <div class="three-item-carousel owl-carousel owl-theme">
-
+                    @foreach ($industrial_services as $in_services)
                     <!-- Services Block Two -->
                     <div class="services-block-two">
                         <div class="inner-box">
                             <div class="image">
-                                <a href="building-construction.html"><img src="images/service-4.jpg"
+                                <a href="#"><img src="{{ asset('Industrial_Services/' . $in_services->image) }}"
                                         alt="" /></a>
                             </div>
                             <div class="lower-content">
-                                <h3><a href="building-construction.html">Industrial Automation</a></h3>
-                                <div class="text">Connect machines, safety critical equipment, control systems to monitor
-                                    performance in
-                                    real-time</div>
-                                <a href="contact.html" class="read-more">Learn More<span
+                                <h3><a href="building-construction.html">{{ @$in_services->title }}</a></h3>
+                                {!! @$in_services->description !!}
+                                <a href="{{ url('contact') }}" class="read-more">Learn More<span
                                         class="arrow flaticon-next"></span></a>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Services Block Two -->
-                    <div class="services-block-two">
-                        <div class="inner-box">
-                            <div class="image">
-                                <a href="chemical-research.html"><img src="images/service-2.jpg" alt="" /></a>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="chemical-research.html">Power Generation</a></h3>
-                                <div class="text">Utilize data from wind, solar, hydro, nuclear or coal power plants to
-                                    optimize costs and
-                                    improve energy production</div>
-                                <a href="contact.html" class="read-more">Learn More<span
-                                        class="arrow flaticon-next"></span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Services Block Two -->
-                    <div class="services-block-two">
-                        <div class="inner-box">
-                            <div class="image">
-                                <a href="oil-gas.html"><img src="images/service-3.jpg" alt="" /></a>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="oil-gas.html">Electronics Manufacturing Services</a></h3>
-                                <div class="text">Design and development of hardware, software, mechanical design, test
-                                    and production</div>
-                                <a href="contact.html" class="read-more">Learn More<span
-                                        class="arrow flaticon-next"></span></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Services Block Two -->
-                    <div class="services-block-two">
-                        <div class="inner-box">
-                            <div class="image">
-                                <a href="building-construction.html"><img src="images/service-1.jpg"
-                                        alt="" /></a>
-                            </div>
-                            <div class="lower-content">
-                                <h3><a href="building-construction.html">Digital Transformation</a></h3>
-                                <div class="text">Customized connectivity solutions for safety critical oil and gas,
-                                    combustion, mining and
-                                    worker safety</div>
-                                <a href="contact.html" class="read-more">Learn More<span
-                                        class="arrow flaticon-next"></span></a>
-                            </div>
-                        </div>
-                    </div>
-
-
-
+                    @endforeach
+                  
 
                 </div>
             </div>

@@ -88,7 +88,7 @@ class ServiceController extends Controller
     if ($validate->fails()) {
         return Redirect::back()->withErrors($validate);
     }
-    $homepage = Service::where('_id', $id)->first();
+    $homepage = Service::where('id', $id)->first();
 
     if ($request->hasfile('image')) {
     

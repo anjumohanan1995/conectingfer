@@ -59,12 +59,12 @@
                                         <input type="file" id="images" name="images[]" accept="image/*" multiple>
                                     </div>
 
-
+@php $array = json_decode($content->image, true); @endphp
                                     @if ($content->image)
                                         <label for="images" class="form-label">Uploaded Images</label>
 
                                         <div class="images-container">
-                                            @foreach ($content->image as $image)
+                                            @foreach ($array as $image)
                                                 <img src="{{ asset('content/' . $image) }}" alt="Image"
                                                     style="width: 200px; height: 200px; object-fit: cover;">
                                             @endforeach

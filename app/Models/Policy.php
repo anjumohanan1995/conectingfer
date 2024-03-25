@@ -3,15 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-use Jenssegers\Mongodb\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
 
-class Policy extends Eloquent
+class Policy extends Model
 {
     use HasFactory , SoftDeletes;
 
-    protected $connection = 'mongodb';
     protected $collection = 'policies';
 
     protected $guarded = [];

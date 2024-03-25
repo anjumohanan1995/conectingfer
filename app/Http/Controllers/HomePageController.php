@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\HomeService;
+use App\Models\IndustrialService;
+use App\Models\Innovation;
 use App\Models\Setting;
+use App\Models\SliderCategory;
+use App\Models\WhyChooseUs;
 use Illuminate\Http\Request;
 
 class HomePageController extends Controller
@@ -15,7 +20,21 @@ class HomePageController extends Controller
     public function index()
     {
         $setting = Setting::first();
-        return view('home.home',compact('setting'));
+        $sliders = SliderCategory::with('Sliders')
+       ->where('category_status', '=', '1')
+       ->where('category_position', 'top')
+       ->whereNull('deleted_at')
+       ->first();
+       $sliders_top = @$sliders->Sliders ?? collect(); // Use an empty collection as the default value if $sliders->Sliders is null
+
+       $home_services = HomeService::whereNull('deleted_at')->orderBy('order_no','ASC')->get();
+
+       $why_choose_us = WhyChooseUs::whereNull('deleted_at')->orderBy('created_at','DESC')->get();
+       $industrial_services = IndustrialService::whereNull('deleted_at')->orderBy('created_at','DESC')->get();
+       $innovation = Innovation::first();
+
+
+        return view('home.home',compact('setting','sliders_top','home_services','why_choose_us','industrial_services','innovation'));
     }
 
     /**

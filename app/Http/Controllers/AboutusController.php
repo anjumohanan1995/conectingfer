@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Contact;
-use App\Models\Aboutus;
+use App\Models\AboutUs;
 use Illuminate\Http\Request;
 use App\HomeContent;
 use Illuminate\Support\Facades\Validator;
@@ -27,7 +27,7 @@ class AboutusController extends Controller
     }
     public function index(Request $request)
     {       
-        $data = Aboutus::first();
+        $data = AboutUs::first();
         return view('aboutus',compact('data'));
     }
 
@@ -69,10 +69,10 @@ if ($request->hasfile('image')) {
 }else{
     $data['image'] = '';
 }
-        $innovation = Aboutus::where('slug',$request->slug)->first();
+        $innovation = AboutUs::where('slug',$request->slug)->first();
         if($innovation == ''){
 
-            $innovation=   Aboutus::create([
+            $innovation=   AboutUs::create([
             'title' => @$request->title? $request->title:'']);
         }
         $innovation->title = @$request->title;
@@ -80,7 +80,7 @@ if ($request->hasfile('image')) {
         $innovation->sub_title = @$request->sub_title;
         $innovation->content = @$request->content;
         $innovation->image = $data['image']??'';
-        $innovation->created_by = auth()->user()->id;
+        //$innovation->created_by = auth()->user()->id;
         $innovation->save();
      
         return redirect()->back()->with('status','Created Successfully.');

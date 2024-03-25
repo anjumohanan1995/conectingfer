@@ -87,7 +87,7 @@ class TechnologyController extends Controller
     if ($validate->fails()) {
         return Redirect::back()->withErrors($validate);
     }
-    $homepage = Technology::where('_id', $id)->first();
+    $homepage = Technology::where('id', $id)->first();
 
     if ($request->hasfile('image')) {
     

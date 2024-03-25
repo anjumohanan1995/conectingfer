@@ -39,7 +39,7 @@
     <script src="{{ asset('js/jquery.min.js') }}"></script>
 
     {{-- ck editor  --}}
-    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+    <script src="{{ asset('js/ckeditor/ckeditor.js')}}"></script>
 
     <?php
     if (session()->has('style_status')) {
@@ -292,126 +292,7 @@
             </div>
            </div>
           </div>  -->
-                                    @php
-                                        $date = date('Y-m-d');
-                                        $getNotifications = DB::table('notifications')
-                                            ->where('date', $date)
-                                            ->where('status', 0)
-                                            ->orderBy('created_at', 'desc')
-                                            ->get();
-                                    @endphp
-                                    <div class="dropdown nav-item main-header-notification">
-                                        <a class="new nav-link" href="javascript:void(0);">
-                                            <i class="fe fe-bell"> </i>
-
-                                            <span class="pulse"> {{ count(@$getNotifications) }}</span>
-
-                                        </a>
-                                        <div class="dropdown-menu">
-                                            <div class="menu-header-content bg-primary-gradient text-start d-flex">
-                                                <div class="">
-                                                    <h6 class="menu-header-title text-white mb-0">Notifications</h6>
-                                                </div>
-                                                <!-- <div class="my-auto ms-auto">
-              <a class="badge bg-pill bg-warning float-end" href="javascript:void(0);">Mark All Read</a>
-             </div> -->
-                                            </div>
-                                            <div class="main-notification-list Notification-scroll ">
-
-
-                                                @foreach ($getNotifications as $notification)
-                                                    <a class="d-block p-3 border-bottom float-start"
-                                                        href="{{ url('notification-view', $notification['_id']) }}">
-                                                        <div class="notifyimg bg-success-transparent float-start me-3">
-                                                            <i class="la la-bell text-success"> </i>
-                                                        </div>
-                                                        <div class=" w-70 float-start">
-                                                            <h5 class="notification-label mb-1">
-                                                                {{ @$notification['message'] }}</h5>
-                                                            <div class="notification-subtext">Date
-                                                                {{ date('d-m-Y', strtotime(@$notification['date'])) }}
-                                                            </div>
-                                                        </div>
-                                                        <div class="ms-auto float-start">
-                                                            <i class="las la-angle-right text-end text-muted"> </i>
-                                                        </div>
-                                                    </a>
-                                                @endforeach
-
-                                                <!-- 	<a class="d-flex p-3 border-bottom" href="javascript:void(0);">
-              <div class="notifyimg bg-danger-transparent">
-               <i class="la la-user-check text-danger"> </i>
-              </div>
-              <div class="ms-3">
-               <h5 class="notification-label mb-1">22 verified registrations</h5>
-               <div class="notification-subtext">2 hour ago</div>
-              </div>
-              <div class="ms-auto">
-               <i class="las la-angle-right text-end text-muted"> </i>
-              </div>
-             </a>
-             <a class="d-flex p-3 border-bottom" href="javascript:void(0);">
-              <div class="notifyimg bg-primary-transparent">
-               <i class="la la-check-circle text-primary"> </i>
-              </div>
-              <div class="ms-3">
-               <h5 class="notification-label mb-1">Project has been approved</h5>
-               <div class="notification-subtext">4 hour ago</div>
-              </div>
-              <div class="ms-auto">
-               <i class="las la-angle-right text-end text-muted"> </i>
-              </div>
-             </a>
-             <a class="d-flex p-3 border-bottom" href="javascript:void(0);">
-              <div class="notifyimg bg-pink-transparent">
-               <i class="la la-file-alt text-pink"> </i>
-              </div>
-              <div class="ms-3">
-               <h5 class="notification-label mb-1">New files available</h5>
-               <div class="notification-subtext">10 hour ago</div>
-              </div>
-              <div class="ms-auto">
-               <i class="las la-angle-right text-end text-muted"> </i>
-              </div>
-             </a>
-             <a class="d-flex p-3 border-bottom" href="javascript:void(0);">
-              <div class="notifyimg bg-warning-transparent">
-               <i class="la la-envelope-open text-warning"> </i>
-              </div>
-              <div class="ms-3">
-               <h5 class="notification-label mb-1">New review received</h5>
-               <div class="notification-subtext">1 day ago</div>
-              </div>
-              <div class="ms-auto">
-               <i class="las la-angle-right text-end text-muted"> </i>
-              </div>
-             </a>
-             <a class="d-flex p-3" href="javascript:void(0);">
-              <div class="notifyimg bg-purple-transparent">
-               <i class="la la-gem text-purple"> </i>
-              </div>
-              <div class="ms-3">
-               <h5 class="notification-label mb-1">Updates Available</h5>
-               <div class="notification-subtext">2 days ago</div>
-              </div>
-              <div class="ms-auto">
-               <i class="las la-angle-right text-end text-muted"> </i>
-              </div>
-             </a> -->
-                                                <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-                                                    <div class="ps__thumb-x" tabindex="0"
-                                                        style="left: 0px; width: 0px;"></div>
-                                                </div>
-                                                <div class="ps__rail-y" style="top: 0px; right: 0px;">
-                                                    <div class="ps__thumb-y" tabindex="0"
-                                                        style="top: 0px; height: 0px;"></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div class="dropdown-footer">
-             <a href="javascript:void(0);">VIEW ALL</a>
-            </div> -->
-                                        </div>
-                                    </div>
+                                 
                                     <div class="dropdown main-profile-menu nav nav-item nav-link">
                                         <a class="profile-user d-flex" href="">
                                             @if (Auth::user()->image != '')
@@ -633,6 +514,46 @@
                                             </a>
                                         </li>
                                         <li class="slide">
+                                            <a class="side-menu__item {{ \Request::route()->getName() == 'menus.index' || \Request::route()->getName() == 'menus.create' || \Request::route()->getName() == 'menus.edit' ? 'active' : '' }}" data-bs-toggle="slide" href="{{url('/slidercategories')}}">
+                                               <i class="side-menu__icon fe fe-file"> </i>
+                                               <span class="side-menu__label">Sliders</span>
+        
+                                           </a>
+                                      </li>
+
+                                      <li class="slide">
+                                        <a class="side-menu__item" data-bs-toggle="slide" href="">
+                                           <i class="side-menu__icon fe fe-user"> </i>
+                                           <span class="side-menu__label">Homepage Settings</span>
+                                           <i class="angle fe fe-chevron-down"> </i>
+                                       </a>
+            
+                                       <ul class="slide-menu">
+                                        <li class="sub-slide">
+                                            <a class="slide-item {{ ((\Request::route()->getName() == 'getAboutus')||(\Request::route()->getName() == 'miscellaneous.create')||(\Request::route()->getName() == 'miscellaneous.edit')||(\Request::route()->getName() == 'miscellaneous.import')) ? 'active' : '' }}" data-bs-toggle="sub-slide" href="{{url('/innovation')}}">
+                                                <span class="sub-side-menu__label">Section 2</span>
+                                            </a>
+                                        </li>
+                                        <li class="sub-slide">
+                                            <a class="slide-item {{ ((\Request::route()->getName() == 'getAboutus')||(\Request::route()->getName() == 'miscellaneous.create')||(\Request::route()->getName() == 'miscellaneous.edit')||(\Request::route()->getName() == 'miscellaneous.import')) ? 'active' : '' }}" data-bs-toggle="sub-slide" href="{{url('/home-services')}}">
+                                                <span class="sub-side-menu__label">Section 3</span>
+                                            </a>
+                                        </li>
+                                        <li class="sub-slide">
+                                            <a class="slide-item {{ ((\Request::route()->getName() == 'getAboutus')||(\Request::route()->getName() == 'miscellaneous.create')||(\Request::route()->getName() == 'miscellaneous.edit')||(\Request::route()->getName() == 'miscellaneous.import')) ? 'active' : '' }}" data-bs-toggle="sub-slide" href="{{url('/industrial-services')}}">
+                                                <span class="sub-side-menu__label">Industrial Services</span>
+                                            </a>
+                                        </li>
+                                        <li class="sub-slide">
+                                            <a class="slide-item {{ ((\Request::route()->getName() == 'getAboutus')||(\Request::route()->getName() == 'miscellaneous.create')||(\Request::route()->getName() == 'miscellaneous.edit')||(\Request::route()->getName() == 'miscellaneous.import')) ? 'active' : '' }}" data-bs-toggle="sub-slide" href="{{url('/why-choose-us')}}">
+                                                <span class="sub-side-menu__label">Why Choose Us</span>
+                                            </a>
+                                        </li>    
+            
+                                       </ul>
+            
+                                   </li>
+                                        <li class="slide">
                                             <a class="side-menu__item {{ \Request::route()->getName() == 'about-us.index'  ? 'active' : '' }}"
                                                 href="{{ url('admin/about-us') }}">
                                                 <i class="side-menu__icon fe fe-airplay"> </i>
@@ -676,29 +597,6 @@
                                                 <span class="side-menu__label">Contact Form</span>
                                             </a>
                                         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                         
                                         <li class="slide">
                                             <a class="side-menu__item {{ \Request::route()->getName() == 'privacy-policy.index' || \Request::route()->getName() == 'privacy-policy.create' || \Request::route()->getName() == 'privacy-policy.edit' ? 'active' : '' }}"
@@ -824,7 +722,7 @@
         <script src="{{ asset('js/sticky.js') }}"></script>
         <script src="{{ asset('js/sidebar.js') }}"></script>
         <script src="{{ asset('js/sidebar-custom.js') }}"></script>
-        <script src="{{ asset('js/script.js') }}"></script>
+        {{--  <script src="{{ asset('js/script.js') }}"></script>  --}}
         <script src="{{ asset('js/index.js') }}"></script>
         <script src="{{ asset('js/themecolor.js') }}"></script>
         <script src="{{ asset('js/swither-styles.js') }}"></script>

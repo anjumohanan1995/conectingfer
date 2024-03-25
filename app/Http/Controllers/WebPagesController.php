@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aboutus;
+use App\Models\AboutUs;
 use App\Models\Contact;
 use App\Models\Policy;
 use App\Models\Service;
@@ -13,7 +13,7 @@ class WebPagesController extends Controller
 {
     public function aboutUs() {
         
-        $data=Aboutus::first();
+        $data=AboutUs::first();
         return view('pages.about_us',compact('data'));
     }
 

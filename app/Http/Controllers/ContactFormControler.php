@@ -115,7 +115,7 @@ class ContactFormControler extends Controller
     
     public function getContactForm()
     {
-        dd('ho');
+        
 
         // Get DataTables parameters
         // $draw = $request->get('draw');
@@ -188,12 +188,12 @@ class ContactFormControler extends Controller
         foreach ($records as $record) {
             $data_arr[] = [
                 'no' => $i++,
-                "Name" => $record->username . $record->lastname,
-                "email" => $record->email,
-                "phone" => $record->phone,
-                "company" => $record->company,
-                "subject" => $record->subject,
-                "message" => $record->message,
+                "Name" => @$record->username . $record->lastname,
+                "email" => @$record->email,
+                "phone" => @$record->phone,
+                "company" => @$record->company,
+                "subject" => @$record->subject,
+                "message" => @$record->message,
                 "action" => '<div class="d-flex">
                     <a class="btn btn-primary m-1" href="' . route('menus.edit', $record->id) . '">Show More</a>
                     <form action="' . route('menus.delete', $record->id) . '" method="POST" onsubmit="return confirm(\'Are you sure you want to delete this item?\');">

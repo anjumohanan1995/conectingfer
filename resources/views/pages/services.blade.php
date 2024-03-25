@@ -36,7 +36,7 @@
             <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image">
-                        <a href="building-construction.html"><img src="images/service-2-1.jpg" alt="" /></a>
+                        <a href="building-construction.html"><img src="{{ asset('Services/' . @$data->image) }}" alt="" /></a>
                     </div>
                     <div class="lower-content">
                         <h3><a href="#">{{ @$data->title }}</a></h3>
