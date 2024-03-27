@@ -30,8 +30,8 @@
                                 Address</strong>
                             {!! @$data->address !!}</li>
                         <li><span class="icon icon-envelope-open"></span><strong>Email
-                                us</strong>{{ @$data->email }}</li>
-                        <li><span class="icon icon-call-in"></span><strong>Call Support</strong>{{ @$data->contact }}</li>
+                                us</strong><a href="mailto:{{ @$data->email }}">{{ @$data->email }}</a></li>
+                        <li><span class="icon icon-call-in"></span><strong>Call Support</strong><a href="tel:{{ @$data->contact }}">{{ @$data->contact }}</a></li>
                     </ul>
 
 

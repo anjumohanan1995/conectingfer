@@ -106,7 +106,7 @@
 
                         <div class="logo-box pull-left">
 
-                            <figure class="logo"><a href="/"><img src="{{ asset('/images/logo/'.@$setting->logo) }}"
+                            <figure class="logo"><a href="index-3.html"><img src="{{ asset('/images/logo/'.@$setting->logo) }}"
                                         alt=""></a></figure>
 
                         </div>
@@ -267,7 +267,7 @@
 
                 <figure class="sticky-logo pull-left">
 
-                    <a href="{{ url('/') }}"><img src="images/logo-4.png" alt=""></a>
+                    <a href="index.html"><img src="images/logo-4.png" alt=""></a>
 
                 </figure>
 

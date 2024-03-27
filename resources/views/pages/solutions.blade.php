@@ -1,10 +1,10 @@
 @extends('home.app')
 @section('content')
     <!--Page Title-->
-    <section class="page-banner" style="background-image:url(images/3.jpg);">
+    <section class="page-banner" style="background-image:url(/images/3.jpg);">
         <div class="auto-container">
             <div class="inner-container clearfix mt-5 text-center p-5">
-                <h1>Industrial Automation</h1>
+                <h1>{{ @$content->title }}</h1>
 
             </div>
         </div>

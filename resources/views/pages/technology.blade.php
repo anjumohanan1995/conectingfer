@@ -26,13 +26,13 @@
                                 <div class="news-block-two">
                                     <div class="inner-box">
                                         <div class="image wow fadeInDown" data-wow-delay="0ms" data-wow-duration="1500ms">
-                                            <a href="blog-single.html"><img src="{{asset('/Technology/'.@$data->image)}}" alt="" /></a>
+                                            <a href="javascript:void(0)"><img src="{{asset('/Technology/'.@$data->image)}}" alt="" /></a>
                                         </div>
                                         <div class="lower-content wow fadeInUp" data-wow-delay="0ms"
                                             data-wow-duration="1500ms">
                                             <div class="content-inner">
 
-                                                <h3><a href="blog-single.html">{{ @$data->title }}</a></h3>
+                                                <h3><a href="javascript:void(0)">{{ @$data->title }}</a></h3>
                                                 <div class="text">{!! @$data->description !!}</div>
 
 

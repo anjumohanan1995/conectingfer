@@ -1,50 +1,39 @@
 <?php
 
-namespace App;
-use App\Models\MbaApplication;
+namespace App\Models;
 
-
-
-
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
-use Illuminate\Auth\Authenticatable as AuthenticatableTrait;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-
-class User extends Eloquent implements Authenticatable
+class User extends Authenticatable
 {
-    use AuthenticatableTrait,SoftDeletes;
-
-    protected $connection = 'mongodb';
-
-
-    protected $collection = 'users';
+    use Notifiable;
 
     /**
-     * The attributes which are mass assigned will be used.
+     * The attributes that are mass assignable.
      *
-     * It will return @var array
+     * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password','email','role','image','student_id','password_reset_token','state','district','taluk'
+        'name', 'email', 'password',
     ];
 
-     protected $hidden = [
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
         'password', 'remember_token',
     ];
 
-     protected $casts = [
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-
-
-
-
-
-
-
-
 }
-

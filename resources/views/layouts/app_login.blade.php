@@ -10,11 +10,11 @@
 		<!-- Title -->
 		<title>Connectinfer</title>
 		<!--- Favicon --->
-		<link rel="icon" href="img//gov.jpeg" type="image/x-icon" />
+		<link rel="icon" href="{{ asset('/images/logo.png') }}" type="image/x-icon" />
 		<!-- Bootstrap css -->
 		<link href="{{ asset('css/bootstrap.css')}}" rel="stylesheet" id="style" />
 		<!--- Style css --->
-		<link href="{{ asset('css/style.css') }}" rel="stylesheet" />
+		<link href="{{ asset('css/admin-style.css') }}" rel="stylesheet" />
 		<link href="{{ asset('css/plugins.css') }}" rel="stylesheet" />
 		<!--- Icons css --->
 		<link href="{{ asset('css/icons.css') }}" rel="stylesheet" />

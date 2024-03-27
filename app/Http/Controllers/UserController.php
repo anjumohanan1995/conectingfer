@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\District;
 use Illuminate\Http\Request;
 
-use App\User;
+use App\Models\User;
 use App\Role;
 use App\PreviousUser;
 use App\AccessKey;

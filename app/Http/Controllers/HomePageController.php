@@ -9,6 +9,8 @@ use App\Models\Setting;
 use App\Models\SliderCategory;
 use App\Models\WhyChooseUs;
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class HomePageController extends Controller
 {
@@ -19,6 +21,7 @@ class HomePageController extends Controller
      */
     public function index()
     {
+        
         $setting = Setting::first();
         $sliders = SliderCategory::with('Sliders')
        ->where('category_status', '=', '1')

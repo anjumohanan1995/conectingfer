@@ -2,16 +2,15 @@
   
 namespace App;  
   
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent; 
-use Illuminate\Database\Eloquent\SoftDeletes; 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
   
-class Role extends Eloquent  
+class Role extends Model  
 {  
     use SoftDeletes; 
 
-    protected $connection = 'mongodb';
-      
     protected $collection = 'roles';  
   
     /**  

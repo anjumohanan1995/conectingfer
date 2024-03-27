@@ -2,14 +2,12 @@
 
 namespace App;
 
-use Jenssegers\Mongodb\Eloquent\Model as Eloquent;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Model;
 
-class RolePermission extends Eloquent
+class RolePermission extends Model
 {
     use SoftDeletes;
-
-    protected $connection = 'mongodb';
 
     protected $collection = 'role_permissions';
 

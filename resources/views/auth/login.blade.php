@@ -8,7 +8,7 @@
 
                 <div class="p-5  wd-100p">
                     <div class="main-signin-header">
-						<img src="img//gov.jpeg" class="main-logo" alt="logo" width="800px" >
+						<img src="{{ asset('/images/logo-4.png') }}" style="background-color: black;" class="main-logo" alt="logo" width="800px" >
                         <h2 class="mt-4 mb-4">Login</h2>
                          
                         @if (session('error'))

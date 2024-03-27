@@ -414,35 +414,7 @@
                                 <path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"></path>
                             </svg>
                         </div>
-                        @php
-                            @$role = \Auth::user()->role;
-                            $permission = \App\RolePermission::where('role', \Auth::user()->role)->first();
-
-                            @$sub_permission = $permission->sub_permissions
-                                ? json_decode($permission->sub_permissions, true)
-                                : null;
-
-                        @endphp
-                        @if (Auth::user()->role == 'Student')
-                            <li class="slide">
-                                <a class="side-menu__item" data-bs-toggle="slide" href="">
-                                    <i class="side-menu__icon fe fe-download"> </i>
-                                    <span class="side-menu__label">Download</span>
-                                    <i class="angle fe fe-chevron-down"> </i>
-                                </a>
-
-                                <ul class="slide-menu">
-
-                                    <li class="sub-slide">
-                                        <a class="slide-item" data-bs-toggle="sub-slide" href="">
-                                            <span class="sub-side-menu__label">Reciept Download</span>
-                                        </a>
-                                    </li>
-
-                                </ul>
-
-                            </li>
-                        @endif
+                      
 
 
 
@@ -453,19 +425,7 @@
                                     <span class="side-menu__label">Dashboard</span>
                                 </a>
                             </li>
-                            @php
-                                $permission = \App\RolePermission::where('role', \Auth::user()->role)->first();
-                                //  dd(Auth::user()->name);
-                                //dd($permission);
-                                @$sub_permission = $permission->sub_permissions
-                                    ? json_decode($permission->sub_permissions, true)
-                                    : null;
-                                //dd($sub_permission);
-                            @endphp
-                            @if (!empty($permission))
-
-                                @foreach (@$permission->permission as $permissions)
-                                    @if (@$permissions == 'user-management')
+                        
                                         <li
                                             class="slide {{ request()->is('user-management') || request()->is('roles') || request()->is('permissions') ? 'is-expanded' : '' }}">
                                             <a class="side-menu__item" data-bs-toggle="slide" href="">
@@ -475,7 +435,7 @@
                                             </a>
 
                                             <ul class="slide-menu">
-                                                @if ($sub_permission && is_array($sub_permission) && in_array('users', $sub_permission))
+                                              
                                                     <li class="sub-slide">
                                                         <a class="slide-item {{ request()->is('user-management') ? 'active' : '' }}"
                                                             data-bs-toggle="sub-slide"
@@ -483,16 +443,14 @@
                                                             <span class="sub-side-menu__label">Users</span>
                                                         </a>
                                                     </li>
-                                                @endif
-                                                @if ($sub_permission && is_array($sub_permission) && in_array('add-role', $sub_permission))
+                                            
                                                     <li class="sub-slide ">
                                                         <a class="slide-item {{ request()->is('roles') ? 'active' : '' }}"
                                                             data-bs-toggle="sub-slide" href="{{ url('roles') }}">
                                                             <span class="sub-side-menu__label">Roles</span>
                                                         </a>
                                                     </li>
-                                                @endif
-                                                @if ($sub_permission && is_array($sub_permission) && in_array('permission', $sub_permission))
+                                              
                                                     <li class="sub-slide">
                                                         <a class="slide-item {{ request()->is('permissions') ? 'active' : '' }}"
                                                             data-bs-toggle="sub-slide"
@@ -500,8 +458,7 @@
                                                             <span class="sub-side-menu__label">Permission</span>
                                                         </a>
                                                     </li>
-                                                @endif
-
+                                               
                                             </ul>
 
 
@@ -619,9 +576,7 @@
         
                                            </a>
                                        </li>
-                                    @endif
-                                @endforeach
-                            @endif
+                                   
 
 
 
