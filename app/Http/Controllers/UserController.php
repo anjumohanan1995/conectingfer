@@ -24,7 +24,6 @@ use Auth;
 
 
 
-
 class UserController extends Controller
 {
     /**

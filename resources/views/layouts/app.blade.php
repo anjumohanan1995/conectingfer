@@ -444,7 +444,7 @@
                                                         </a>
                                                     </li>
                                             
-                                                    <li class="sub-slide ">
+                                                    {{--  <li class="sub-slide ">
                                                         <a class="slide-item {{ request()->is('roles') ? 'active' : '' }}"
                                                             data-bs-toggle="sub-slide" href="{{ url('roles') }}">
                                                             <span class="sub-side-menu__label">Roles</span>
@@ -457,7 +457,7 @@
                                                             href="{{ url('permissions') }}">
                                                             <span class="sub-side-menu__label">Permission</span>
                                                         </a>
-                                                    </li>
+                                                    </li>  --}}
                                                
                                             </ul>
 
