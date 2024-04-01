@@ -90,13 +90,13 @@
 
         <ul class="social-links clearfix">
 
-            <!-- <li><a href="{{ url('contact') }}"><i class="fab fa-facebook-f"></i></a></li> -->
+            <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-facebook-f"></i></a></li> -->
 
-            <li><a href="{{ url('contact') }}"><i class="fab fa-linkedin"></i></a></li>
+            <li><a href="{{ @$setting->linkedin_url }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 
-            <li><a href="{{ url('contact') }}"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="{{ @$setting->twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
 
-            <!-- <li><a href="{{ url('contact') }}"><i class="fab fa-dribbble"></i></a></li> -->
+            <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-dribbble"></i></a></li> -->
 
         </ul>
     </section>
