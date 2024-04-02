@@ -40,28 +40,8 @@ class RoleController extends Controller
      public function index()
     {
 
-        $permission = \App\RolePermission::where('role',Auth::user()->role)->first();
-        $sub_permission= ($permission->sub_permissions)? json_decode($permission->sub_permissions,true) :  null;
-
-        $count = 0;
-         if( !empty($permission) )
-        {
-           
-            foreach(@$permission->permission as $permissions){
-                if(@$permissions == "user-management"){
-                    $count ++;
                       return view('role.index');
-                }/*else{
-            
-                    return view('auth.login');
-                }*/
-
-            }
-
-        }
-        if($count == 0){
-             return abort(404);
-        }
+                
        
     }
 
@@ -189,7 +169,7 @@ class RoleController extends Controller
                    "id" => $id,
                    "name" => $name,
 
-                   "edit" => '<div class="settings-main-icon"><a  href="' . url('roles/'.$id.'/edit') . '"><i class="fa fa-edit bg-info me-1"></i></a>&nbsp;&nbsp;<a class="deleteItem" data-id="'.$id.'"><i class="fa fa-trash bg-danger "></i></a>&nbsp;&nbsp;<a href="' . url('roles/'.$name.'/editPermission') . '"><button class="btn-btn-primary">Permission</button></a></div>'
+                   "edit" => '<div class="settings-main-icon"><a  href="' . url('roles/'.$id.'/edit') . '"><i class="fa fa-edit bg-info me-1"></i></a>&nbsp;&nbsp;<a class="deleteItem" data-id="'.$id.'"><i class="fa fa-trash bg-danger "></i></a></div>'
 
                );
             }

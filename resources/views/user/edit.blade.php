@@ -80,7 +80,7 @@
 												</div>
 											</div>
 										</div>
-                                        <div class="form-group" id="state_div" style="display:none">
+                                        {{--  <div class="form-group" id="state_div" style="display:none">
 											<div class="row">
 												<div class="col-md-3"><label class="form-label">Home State / Union Territory</label></div>
 												<div class="col-md-9">
@@ -130,7 +130,7 @@
 													@enderror
 												</div>
 											</div>
-										</div>
+										</div>  --}}
 
 										<div class="card-footer">
 											<button type="submit" class="btn btn-primary waves-effect waves-light">Save</button>
@@ -200,32 +200,7 @@
         var iddistrict = document.getElementById("district").value;
 
         $("#state-dropdown").html('');
-        $.ajax({
-            url: "{{ route('taluks') }}",
-            type: "GET",
-            data: {
-                district: iddistrict,
-                _token: '{{csrf_token()}}'
-            },
-            dataType: 'json',
-            success: function (result) {
-                var taluk_name =  {{ Js::from($data['taluk']) }};
-                $('#taluk').html('<option value="">Select Taluk </option>');
-                $.each(result.locations, function (key, value) {
-
-                    if(value.name == taluk_name)
-                    $('#taluk').append('<option value="'+value.name+'" selected>'+ value.name +'</option>');
-                    else
-                    $('#taluk').append('<option value="'+value.name+'">'+ value.name +'</option>');
-
-
-                });
-               // $('#camera_id').html('<option value=""> Camera Id </option>');
-
-                table.draw();
-            }
-
-        });
+       
         $("#role").change(function () {
             var role = $(this).val(); // Get the value of the selected item
             $("#dist").val('');
@@ -279,32 +254,8 @@
                 stateDropdown.value = '';
             }
         });
-			$('#district').on('change', function () {
-                var iddistrict = this.value;
-
-                $("#state-dropdown").html('');
-                $.ajax({
-                    url: "{{ route('location') }}",
-                    type: "GET",
-                    data: {
-                        district_id: iddistrict,
-                        _token: '{{csrf_token()}}'
-                    },
-                    dataType: 'json',
-                    success: function (result) {
-                        $('#taluk').html('<option value="">Select Taluk </option>');
-                        $.each(result.locations, function (key, value) {
-                            $("#taluk").append('<option value="' + value
-                                .location_id + '">' + value.name + '</option>');
-                        });
-                        $('#camera_id').html('<option value=""> Camera Id </option>');
-
-                        table.draw();
-                    }
-
-                });
-
-            });
+			
+		
 
     });
 
