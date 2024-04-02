@@ -38,8 +38,8 @@
                         <ul class="social-links">
                             <!-- <li><a href="#"><span class="fab fa-facebook-f"></span></a></li>
                                     <li><a href="#"><span class="fab fa-google-plus-g"></span></a></li> -->
-                            <li><a href="#"><span class="fab fa-twitter"></span></a></li>
-                            <li><a href="#"><span class="fab fa-linkedin-in"></span></a></li>
+                                    <li><a href="{{ @$setting->twitter_url }}" target="_blank"><span class="fab fa-twitter"></span></a></li>
+                                    <li><a href="{{ @$setting->linkedin_url }}" target="_blank"><span class="fab fa-linkedin-in"></span></a></li>
                             <!-- <li><a href="#"><span class="fab fa-youtube"></span></a></li> -->
                         </ul>
 

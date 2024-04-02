@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>connectifier</title>
+    <title>connectinfer</title>
     <!-- Stylesheets -->
     <link href={{ asset('css/bootstrap.css') }} rel="stylesheet">
     <link href={{ asset('css/settings.css') }} rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
@@ -373,9 +373,9 @@
 
                             <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-facebook-f"></i></a></li> -->
 
-                            <li><a href="{{ @$setting->linkedin_url }}"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a href="{{ @$setting->linkedin_url }}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
 
-                            <li><a href="{{ @$setting->twitter_url }}"><i class="fab fa-twitter"></i></a></li>
+                            <li><a href="{{ @$setting->twitter_url }}" target="_blank"><i class="fab fa-twitter"></i></a></li>
 
                             <!-- <li><a href="{{ @$setting->fb_url }}"><i class="fab fa-dribbble"></i></a></li> -->
 
