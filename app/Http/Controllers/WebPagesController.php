@@ -6,6 +6,7 @@ use App\Models\AboutUs;
 use App\Models\Contact;
 use App\Models\Policy;
 use App\Models\Service;
+use App\Models\Setting;
 use App\Models\Technology;
 use Illuminate\Http\Request;
 
@@ -49,7 +50,8 @@ class WebPagesController extends Controller
     public function contact() {
 
         $data=Contact::first();
-        return view('pages.contact_us',compact('data'));
+        $setting = Setting::first();
+        return view('pages.contact_us',compact('data','setting'));
     }
 
     public function privacyPolicy() {

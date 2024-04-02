@@ -29,7 +29,7 @@
                             <div class="lower-content">
                                 <!-- Title Box -->
                                 <div class="title-box">
-                                    <div class="title">Connectinfer</div>
+                                    <div class="title">Last Updated: March 13, 2024</div>
                                     <h2>{{ @$data->sub_title }}</h2>
                                 </div>
 

@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>connectifier</title>
+    <title>connectinfer</title>
     <!-- Stylesheets -->
     <link href={{ asset('css/bootstrap.css') }} rel="stylesheet">
     <link href={{ asset('css/settings.css') }} rel="stylesheet" type="text/css"><!-- REVOLUTION SETTINGS STYLES -->
