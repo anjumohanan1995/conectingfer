@@ -1166,6 +1166,8 @@
     .menu-area .mobile-nav-toggler{
         display:block;
         padding-top: 27px;
+	padding-left:0px;
+	padding-right: 10px;
     }
     .header-style-three .header-lower{
         padding:0;
@@ -1178,11 +1180,11 @@
     .header-style-three .header-lower .search-box-outer{
         top: -10px;
     }.main-slider h2 {
-        font-size: 40px;
-        padding-top: 42px;
+        font-size: 30px;
+        padding-top: 70px;
     }
 	.header-style-three .header-lower .logo-box{
-		width: 50%;    padding-top: 20px;
+		width: 60%;    padding-top: 20px;
 	}.pull-left{
 		width: 100%;
 	}.numbering, .numberingg{
@@ -1243,6 +1245,9 @@ background: none;
 	}
 	.shortcode-posts.tiled-layout .vertical-item .item-content .entry-title{
 		font-size: 20px;
+	}
+	.nav-logo{
+		width: 290px;
 	}
 }
 
