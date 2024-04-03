@@ -36,10 +36,10 @@
             <div class="services-block-three col-xl-4 col-lg-6 col-md-6 col-sm-12">
                 <div class="inner-box wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
                     <div class="image">
-                        <a href="building-construction.html"><img src="{{ asset('Services/' . @$data->image) }}" alt="" /></a>
+                        <a href="javascript:void(0)"><img src="{{ asset('Services/' . @$data->image) }}" alt="" /></a>
                     </div>
                     <div class="lower-content">
-                        <h3><a href="#">{{ @$data->title }}</a></h3>
+                        <h3><a href="javascript:void(0)">{{ @$data->title }}</a></h3>
                         <div class="text">{!! @$data->description !!}</div>
                         <a href="{{url('/contact')}}" class="read-more">Learn More<span
                                 class="fas fa-angle-right"></span></a>

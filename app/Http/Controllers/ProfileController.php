@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
+use App\Models\User;
 use App\Models\MbaApplication;
 use App\Role;
 use App\PreviousUser;
@@ -51,7 +51,7 @@ class ProfileController extends Controller
     // ->join('mba_applications', 'users._id', '=', 'mba_applications.student_id')
     // ->select('users.*', 'mba_applications.*')
     // ->first();
-    $data = User::with('mbaApplication')->find(Auth::id());
+    $data = User::find(Auth::id());
 
         // dd($data);
 

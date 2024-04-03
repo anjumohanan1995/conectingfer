@@ -375,12 +375,12 @@ class UserController extends Controller
               'email' => 'required|email|unique:users,deleted_at,NULL'.$id,
 
               'role' => 'required' ,
-              'state' => 'required' ,
 
 
 
         ]);
         if ($validate->fails()) {
+           // dd($validate);
             return Redirect::back()->withErrors($validate);
         }
 
@@ -390,7 +390,6 @@ class UserController extends Controller
         if($request->password != ''){
             $data['password'] =  Hash::make($request->password);
         }
-
 
 
         $book->update($data);

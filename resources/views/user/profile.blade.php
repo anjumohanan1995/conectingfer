@@ -80,16 +80,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group">
+                                    {{--  <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-3"><label class="form-label">Edit Password</label></div>
                                             <div class="col-md-9">
-                                                {{-- <input type="text" class="form-control" placeholder="Last Name" name="lname" value="{{$data['email']}}" readonly/> --}}
                                                 <a class="btn btn-primary" href="{{ route('profile.password.edit') }}">Edit
                                                     password</a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div>  --}}
 
 
 
@@ -243,10 +242,10 @@
                                     <div class="col-md-9">
                                         <input type="hidden" name="imgs" value="{{ $data['image'] }}" />
                                     </div>
-                                    <div class="card-footer">
+                                    {{--  <div class="card-footer">
                                         <button type="submit"
                                             class="btn btn-primary waves-effect waves-light">Save</button>
-                                    </div>
+                                    </div>  --}}
                                 </form>
 
                             </div>
